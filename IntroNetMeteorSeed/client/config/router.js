@@ -26,7 +26,7 @@ Router.route('/register', function(){
     this.layout('blankLayout')
 });
 Router.route('/', function () {
-    Router.go('pageOne');
+    Router.go('login');
 
 
 });

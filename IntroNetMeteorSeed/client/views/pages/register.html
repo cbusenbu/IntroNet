@@ -1,3 +1,4 @@
+
 <template name="register">
     <div class="middle-box text-center loginscreen animated fadeInDown">
         <div>
@@ -7,32 +8,32 @@
 
         <p>Create account to see it in action.</p>
 
-        <form class="m-t" role="form" action="#">
+        <form id = "login-form" class="m-t" role="form" action="#">
+            <!--
             <div class="form-group">
-                <input type="text" class="form-control" placeholder="User Name" required="">
+                <input type="text" class="form-control" placeholder="User Name" name="username" required="">
+            </div>
+            -->
+            <div class="form-group">
+                <input type="email" class="form-control" placeholder="Email" name="email" required="">
             </div>
             <div class="form-group">
-                <input type="email" class="form-control" placeholder="Email" required="">
+                <input type="password" class="form-control" placeholder="Password" name="password" required="">
+            </div>
+            <!--<div class="form-group">
+                <input type="password" class="form-control" placeholder="Password Again"  required="">
             </div>
             <div class="form-group">
-                <input type="password" class="form-control" placeholder="Password" required="">
+                <input type="text" class="form-control" placeholder="First Name" id = "register-fName" required="">
             </div>
             <div class="form-group">
-                <input type="password" class="form-control" placeholder="Password Again" required="">
+                <input type="text" class="form-control" placeholder="Last Name" id = "register-lName" required="">
             </div>
-            <div class="form-group">
-                <input type="text" class="form-control" placeholder="First Name" required="">
-            </div>
-            <div class="form-group">
-                <input type="text" class="form-control" placeholder="Last Name" required="">
-            </div>
-            <div class="form-group">
-                <input type="text" class="form-control" placeholder="Associated Organization" required="">
-            </div>
+
             <div class="form-group">
                 <div class="checkbox i-checks"><label> <input type="checkbox"><i></i> Agree the terms and policy
                 </label></div>
-            </div>
+            </div>-->
             <button type="submit" class="btn btn-primary block full-width m-b">Register</button>
 
             <p class="text-muted text-center">
@@ -41,7 +42,7 @@
             <a class="btn btn-sm btn-white btn-block" href="{{pathFor route='login'}}">Login</a>
         </form>
         <p class="m-t">
-            <small>Inspinia we app framework base on Bootstrap 3 &copy; 2014</small>
+            <small>S2ERC &copy; 2016</small>
         </p>
     </div>
 </template>
