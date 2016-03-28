@@ -4,12 +4,17 @@
             <h1 class="logo-name">IN+</h1>
         </div>
         <h3>Register to IN+</h3>
-
+        {{#if currentUser}}
+            Congrats you logged in {{currentUser.profile.name}}
+        {{/if}}
         <p>Create IntroNet account to see it in action.</p>
 
         <form class="m-t" role="form" action="#" id = "register">
             <div class="form-group">
-                <input type="text" class="form-control" placeholder="Name" >
+                <input type="text" class="form-control" placeholder="Username" name = "userName" >
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Name" name = "Name" >
             </div>
             <div class="form-group">
                 <input type="email" class="form-control" placeholder="Email" name = "userEmail" >
