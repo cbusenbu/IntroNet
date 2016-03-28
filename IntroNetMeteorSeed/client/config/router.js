@@ -22,11 +22,11 @@ Router.route('/login', function (){
 
 });
 Router.route('/register', function(){
-    this.render('register')
+    this.render('registerUser')
     this.layout('blankLayout')
 });
 Router.route('/', function () {
-    Router.go('login');
+    Router.go('pageOne');
 
 
 });
