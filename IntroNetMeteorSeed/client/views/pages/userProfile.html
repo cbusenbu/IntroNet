@@ -1,0 +1,43 @@
+<template name="userProfile">
+    <div class="left-box text-left animated fadeInDown">
+        <div>
+            <h1 class="logo-name">INTROnet</h1>
+        </div>
+        <h2>View/Edit your Profile settings:</h2>
+        {{#if currentUser}}
+            Current User: {{currentUser.profile.name}}
+        {{/if}}
+        <hr/>
+        <form class="m-t" role="form" action="#" id = "updateProfile">
+            <div class="form-group">
+                <label>Name:</label>
+                <input type="text" class="form-control" name="name" >
+            </div>
+            <hr/>
+            <div class="form-group">
+                <label>Would you like to receive email reminders about your events?</label>
+                <br/>
+                <input type="checkbox" name="okToEmail"> Yes, send me reminders.
+            </div>
+            <hr/>
+            <div class="form-group">
+                <label>Biography:</label>
+                <input type="text" class="form-control" name="biography">
+            </div>
+            <hr/>
+            <div class="form-group">
+                <label>Ice-breakers (e.g. "Ask me about chess," etc.)</label>
+                <input type="text" class="form-control" name = "iceBreakers" >
+            </div>
+            <hr/>
+            <div class="form-group">
+                <label>Enter your password to allow changes:</label>
+                <input type="password" class="form-control" name = "userPassword">
+            </div>
+
+            <button type="submit" class="btn btn-primary block m-b">Make Changes</button>
+
+        </form>
+    </div>
+</template>
+
