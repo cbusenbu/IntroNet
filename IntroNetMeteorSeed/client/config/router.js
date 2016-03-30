@@ -31,11 +31,9 @@ Router.route('/', function () {
 
 Router.route('/userProfile', function (){
     this.render('userProfile');
-    this.layout('blankLayout');
 });
 
 Router.route('/eventSignUpOne', function (){
     this.render('eventSignUpOne');
     Router.go('eventSignUpOne');
-    this.layout('blankLayout');
 });

@@ -1,43 +1,56 @@
 <template name="userProfile">
-    <div class="left-box text-left animated fadeInDown">
-        <div>
-            <h1 class="logo-name">INTROnet</h1>
+
+    {{> pageHeading title='User Profile' }}
+
+    <div class="wrapper wrapper-content animated fadeInRight">
+
+        <div class="row">
+
+            <div class="col-lg-12">
+                <div class="text-left m-t-lg">
+                    <h1>
+                        View/Edit your Profile settings:
+                    </h1>
+                </div>
+            </div>
         </div>
-        <h2>View/Edit your Profile settings:</h2>
+
         {{#if currentUser}}
             Current User: {{currentUser.profile.name}}
         {{/if}}
-        <hr/>
-        <form class="m-t" role="form" action="#" id = "updateProfile">
-            <div class="form-group">
-                <label>Name:</label>
-                <input type="text" class="form-control" name="name" >
-            </div>
-            <hr/>
-            <div class="form-group">
-                <label>Would you like to receive email reminders about your events?</label>
-                <br/>
-                <input type="checkbox" name="okToEmail"> Yes, send me reminders.
-            </div>
-            <hr/>
-            <div class="form-group">
-                <label>Biography:</label>
-                <input type="text" class="form-control" name="biography">
-            </div>
-            <hr/>
-            <div class="form-group">
-                <label>Ice-breakers (e.g. "Ask me about chess," etc.)</label>
-                <input type="text" class="form-control" name = "iceBreakers" >
-            </div>
-            <hr/>
-            <div class="form-group">
-                <label>Enter your password to allow changes:</label>
-                <input type="password" class="form-control" name = "userPassword">
-            </div>
 
-            <button type="submit" class="btn btn-primary block m-b">Make Changes</button>
+        <div class="col-lg-8">
+            <div class="ibox float-e-margins">
+                <div class="ibox-content">
+                    <form class="m-t" role="form" action="#" id = "updateProfile">
+                        <div class="form-group">
+                            <label><h3>Name</h3></label>
+                            <input type="text" class="form-control" name="name">
+                        </div>
+                        <div class="form-group">
+                            <label><h3>Biography</h3></label>
+                            <textarea class="form-control" name="biography" rows="6"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label><h3>Ice-breakers (e.g. "Ask me about chess," etc.)</h3></label>
+                            <input type="text" class="form-control" name="iceBreakers" >
+                        </div>
+                        <div class="form-group">
+                            <label><h3>Would you like to receive email reminders about your events?</h3></label>
+                            <br/>
+                            <div class="col-lg-1 control-label"></div>
+                            <label> <input type="checkbox" class="i-checks" name="okToEmail"> <i></i> Yes, send me reminders </label>
+                        </div>
+                        <div class="form-group">
+                            <label><h3>Enter your password to allow changes</h3></label>
+                            <input type="password" class="form-control" name = "userPassword">
+                        </div>
+                        <button type="submit" class="btn btn-primary block m-b">Make Changes</button>
+                    </form>
+                </div>
+            </div>
+        </div>
 
-        </form>
     </div>
 </template>
 
