@@ -35,5 +35,8 @@ Router.route('/userProfile', function (){
 
 Router.route('/eventSignUpOne', function (){
     this.render('eventSignUpOne');
-    Router.go('eventSignUpOne');
+});
+
+Router.route('/newEvent', function (){
+   this.render('newEvent');
 });
