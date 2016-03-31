@@ -12,9 +12,9 @@ fortawesome:fontawesome
 zimme:iron-router-active
 jquery
 okgrow:router-autoscroll
+dbarrett:dropzonejs
 
 
-standard-minifiers
 meteor-base
 mobile-experience
 mongo
@@ -28,6 +28,7 @@ ejson
 spacebars
 check
 accounts-password
-themeteorchef:bert
 accounts-ui-unstyled
 accounts-base
+standard-minifier-css
+standard-minifier-js

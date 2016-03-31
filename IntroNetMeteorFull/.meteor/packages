@@ -14,7 +14,6 @@ okgrow:router-autoscroll
 dbarrett:dropzonejs
 
 twbs:bootstrap@3.3.6
-standard-minifiers
 meteor-base
 mobile-experience
 mongo
@@ -27,3 +26,5 @@ random
 ejson
 spacebars
 check
+standard-minifier-css
+standard-minifier-js
