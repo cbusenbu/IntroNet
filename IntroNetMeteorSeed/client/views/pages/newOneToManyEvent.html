@@ -1,4 +1,4 @@
-<template name="newOneToOneEvent">
+<template name="newOneToManyEvent">
 
     <style>
         th, td {
@@ -12,7 +12,7 @@
     </style>
 
     <!-- Page heading -->
-    {{> pageHeading title='New One-to-One Event' category='Event Management' }}
+    {{> pageHeading title='New One-to-Many Event' category='Event Management' }}
 
     <div class="wrapper wrapper-content animated fadeInRight">
         <div class="row">
@@ -31,9 +31,9 @@
                         <h3>Event Dates:</h3>
                         <table>
                             <tr>
-                            <td style=""><label class="font-normal">Start Date:</label></td>
-                            <td><input type="date" id="startDate"></td>
-                            <td></td>
+                                <td style=""><label class="font-normal">Start Date:</label></td>
+                                <td><input type="date" id="startDate"></td>
+                                <td></td>
                                 <td style=""><label class="font-normal">End Date:</label></td>
                                 <td><input type="date" id="endDate"></td>
                             </tr>
@@ -95,48 +95,6 @@
                     </table>
                     <br><br>
 
-                    <h3>Preference Settings</h3><br>
-
-                    <table id="preferenceList" border="1">
-                        <tr>
-                            <th>Preference</th>
-                            <th>Values</th>
-                        </tr>
-                    </table>
-                    <br>
-
-                    <div class="text-left">
-                        <a data-toggle="modal" class="btn btn-white" href="#modal-form">Add a New Preference Option</a>
-                    </div>
-                    <div id="modal-form" class="modal fade" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-body">
-                                    <div class="row">
-                                        <div class="b-r"><h3 class="m-t-none m-b">Add a New Preference to Your Event</h3>
-
-                                            <p>Preferences will allow attendees to have a say in who they meet.</p>
-
-                                            <div class="form-group">
-                                                <label>Preference Name</label>
-                                                <input type="text" class="form-control" id="newPrefName"></div>
-                                            <div class="form-group">
-                                                <label>Preference Options (one per line)</label>
-                                                <textarea rows="5" class="form-control" id="newPrefOptions"></textarea>
-                                            </div>
-                                                <label>User Selection Choice:</label><br>
-                                                <input type="radio" name="selectionType" value="likeMe" checked> "Like me" (e.g.: I am a scientist who would like to meed others in my field)<br>
-                                                <input type="radio" name="selectionType" value="detailedSelect"> Detailed (e.g. I want to meet faculty and industry professionals, but not students, etc.)<br><br><br>
-                                            <div>
-                                                <button class="btn btn-sm btn-primary pull-right m-t-n-xs" type="button"><strong>Add Preference</strong></button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <br><br><br>
                     <button class="btn btn-primary pull-left" type="submit">Create Event</button>
                 </form>
             </div>

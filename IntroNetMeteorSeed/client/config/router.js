@@ -44,3 +44,7 @@ Router.route('/newEvent', function (){
 Router.route('/newOneToOneEvent', function(){
     this.render('newOneToOneEvent')
 });
+
+Router.route('/newOneToManyEvent', function(){
+    this.render('newOneToManyEvent')
+});
