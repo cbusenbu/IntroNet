@@ -40,3 +40,7 @@ Router.route('/eventSignUpOne', function (){
 Router.route('/newEvent', function (){
    this.render('newEvent');
 });
+
+Router.route('/newOneToOneEvent', function(){
+    this.render('newOneToOneEvent')
+});
