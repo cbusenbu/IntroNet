@@ -8,7 +8,10 @@ if(Meteor.isServer){
         },
 
         'logoutUser':function(){
-            Meteor.logout();
+            Meteor.logout;
+        },
+        'logoutAllClients': function(){
+            Meteor.logoutOtherClients;
         }
     });
 }
