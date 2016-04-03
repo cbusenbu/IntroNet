@@ -8,8 +8,8 @@ Template.login.events({
             email: template.find("[name = 'userEmail']").value,
             password: template.find("[name = 'userPassword']").value
 
-        }
-        Meteor.loginWithPassword(user.email, user.password);
+        };
+        Meteor.call('loginUser',user);
         Router.go('/pageOne')
     }
 });
