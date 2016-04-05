@@ -14,14 +14,7 @@ Template.registerUser.events({
                 }
         };
 
-        Accounts.createUser({
-            username: user.username,
-            email:user.email,
-            password:user.password,
-            profile:{
-                name:user.actualName
-            }
-        });
+        Meteor.call('userCreate',user);
         console.log("You made it to after createNewUser")
 
     }

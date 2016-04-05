@@ -1,0 +1,145 @@
+<template name="newOneToOneEvent">
+
+    <style>
+        th, td {
+            padding: 5px;
+        }
+
+        input[type="number"]{
+            text-align: right;
+            width: 80px;
+        }
+    </style>
+
+    <!-- Page heading -->
+    {{> pageHeading title='New One-to-One Event' category='Event Management' }}
+
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="row">
+            <div class="col-lg-8">
+                <h2><b>Enter your Event's Attributes Below:</b></h2>
+                <form role="form">
+                    <div class="form-group">
+                        <label>Event Name</label>
+                        <input type="text" class="form-control" id="eventName">
+                    </div>
+                    <div class="form-group">
+                        <label>Event Location</label>
+                        <input type="text" class="form-control" id="eventLocation">
+                    </div>
+                    <div class="form-group" id="dateRange">
+                        <h3>Event Dates:</h3>
+                        <table>
+                            <tr>
+                            <td style=""><label class="font-normal">Start Date:</label></td>
+                            <td><input type="date" id="startDate"></td>
+                            <td></td>
+                                <td style=""><label class="font-normal">End Date:</label></td>
+                                <td><input type="date" id="endDate"></td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="ibox">
+                        <div class="ibox-title"><h3>Choose <u>any two</u> of your Activity Parameters: (then calculate the third)</h3></div>
+                        <div class="form-group ibox-content">
+                            <table>
+                                <tr>
+                                    <td>Number of Activities:</td>
+                                    <td><input type="number" min="0" id="actvtyCount"></td>
+                                </tr>
+                                <tr>
+                                    <td>Activity Length (min):</td>
+                                    <td><input type="number" min="0" id="actvtyLength"></td>
+                                </tr>
+                                <tr>
+                                    <td>Total Time (min):</td>
+                                    <td><input type="number" min="0" id="totalTime"></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td><button class="btn btn-white" type="button" id="calcThirdParam">Calculate Third Parameter</button></td>
+                                </tr>
+                                <tr>
+                                    <td>Break Length (min):</td>
+                                    <td><input type="number" min="0" id="breakLength" value="2"></td>
+                                </tr>
+                                <tr>
+                                    <td>Minimum Participants:</td>
+                                    <td><label id="minParticipants"></label></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+
+                    <table>
+                        <tr>
+                            <td><label>Number of Sessions:</label></td>
+                            <td><input type="number" min="0" id="sessionCount" value="1"></td>
+                        </tr>
+                    </table>
+                    (for breaking events into multiple days, etc.)
+                    <br><br><br>
+
+                    <table id="sessionPicker" border="1">
+                        <tr>
+                            <th>Session Number:</th>
+                            <th>Session Start:</th>
+                            <th>Number of Activities:</th>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td><input type="date" id="sess1Start"></td>
+                            <td><input type="number" min="0" id="sess1Count"></td>
+                        </tr>
+                    </table>
+                    <br><br>
+
+                    <h3>Preference Settings</h3><br>
+
+                    <table id="preferenceList" border="1">
+                        <tr>
+                            <th>Preference</th>
+                            <th>Values</th>
+                        </tr>
+                    </table>
+                    <br>
+
+                    <div class="text-left">
+                        <a data-toggle="modal" class="btn btn-white" href="#modal-form">Add a New Preference Option</a>
+                    </div>
+                    <div id="modal-form" class="modal fade" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-body">
+                                    <div class="row">
+                                        <div class="b-r"><h3 class="m-t-none m-b">Add a New Preference to Your Event</h3>
+
+                                            <p>Preferences will allow attendees to have a say in who they meet.</p>
+
+                                            <div class="form-group">
+                                                <label>Preference Name</label>
+                                                <input type="text" class="form-control" id="newPrefName"></div>
+                                            <div class="form-group">
+                                                <label>Preference Options (one per line)</label>
+                                                <textarea rows="5" class="form-control" id="newPrefOptions"></textarea>
+                                            </div>
+                                                <label>User Selection Choice:</label><br>
+                                                <input type="radio" name="selectionType" value="likeMe" checked> "Like me" (e.g.: I am a scientist who would like to meed others in my field)<br>
+                                                <input type="radio" name="selectionType" value="detailedSelect"> Detailed (e.g. I want to meet faculty and industry professionals, but not students, etc.)<br><br><br>
+                                            <div>
+                                                <button class="btn btn-sm btn-primary pull-right m-t-n-xs" type="button"><strong>Add Preference</strong></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br><br><br>
+                    <button class="btn btn-primary pull-left" type="submit">Create Event</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</template>

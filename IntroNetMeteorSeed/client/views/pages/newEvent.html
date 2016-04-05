@@ -2,54 +2,20 @@
 
 
         <!-- Page heading -->
-        {{> pageHeading title='Wizard' category='Forms' }}
+        {{> pageHeading title='Create a New Event' category='Event Management' }}
 
         <div class="wrapper wrapper-content animated fadeInRight">
             <div class="row">
                 <div class="col-lg-7">
-                    <div class="ibox float-e-margins">
-                        <div class="ibox-title">
-                            <h5>Basic Wizzard</h5>
-                            {{>iboxTools}}
-                        </div>
-                        <div class="ibox-content">
-                            <p>
-                                This is basic example of Step
-                            </p>
-                            <div id="wizard">
-                                <h1>First Step</h1>
-                                <div class="step-content">
-                                    <div class="text-center m-t-md">
-                                        <h2>Hello in Step 1</h2>
-                                        <p>
-                                            This is the first content.
-                                        </p>
-                                    </div>
-                                </div>
-
-                                <h1>Second Step</h1>
-                                <div class="step-content">
-                                    <div class="text-center m-t-md">
-                                        <h2>This is step 2</h2>
-                                        <p>
-                                            This content is different than the first one.
-                                        </p>
-                                    </div>
-                                </div>
-
-                                <h1>Third Step</h1>
-                                <div class="step-content">
-                                    <div class="text-center m-t-md">
-                                        <h2>This is step 3</h2>
-                                        <p>
-                                            This is last content.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
+                    <h2><b>What type of event would you like to create?</b></h2>
+                    <br>
+                    <a class="btn btn-sm btn-primary" type="button" id="oneToOne" href = "{{pathFor route='newOneToOneEvent'}}"><strong>One-to-One</strong></a>
+                    <br><br>
+                    Create a One-to-One Event (think "speed-dating")
+                    <br><br><br>
+                    <a class="btn btn-sm btn-primary" type="button" id="oneToMany" href ="{{pathFor route='newOneToManyEvent'}}"><strong>One-to-Many</strong></a>
+                    <br><br>
+                    Create a One-to-Many Event (think "poster presentations")
                 </div>
             </div>
         </div>
