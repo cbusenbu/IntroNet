@@ -25,9 +25,7 @@ Router.route('/register', function(){
     this.render('registerUser')
     this.layout('blankLayout')
 });
-Router.route('/', function () {
-    Router.go('pageOne');
-});
+
 
 Router.route('/userProfile', function (){
     this.render('userProfile');
@@ -40,3 +38,4 @@ Router.route('/eventSignUpOne', function (){
 Router.route('/newEvent', function (){
    this.render('newEvent');
 });
+
