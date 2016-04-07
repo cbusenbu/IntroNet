@@ -31,22 +31,18 @@ Router.route('/userProfile', function (){
     this.render('userProfile');
 });
 
-Router.route('/eventSignUpOne', function (){
-    this.render('eventSignUpOne');
+Router.route('/eventRegistrationOne', function (){
+    this.render('eventRegistrationOne');
 });
 
 Router.route('/newEvent', function (){
    this.render('newEvent');
 });
 
-//<<<<<<< HEAD
-//=======
-//Router.route('/newOneToOneEvent', function(){
-//    this.render('newOneToOneEvent');
-//});
+Router.route('/newOneToOneEvent', function(){
+   this.render('newOneToOneEvent');
+});
 
-//Router.route('/newOneToManyEvent', function(){
- //   this.render('newOneToManyEvent');
-//});
-//>>>>>>> d3d27cac042f4b96c336a3a5d0bf527c7ff9c293
-//
+Router.route('/newOneToManyEvent', function(){
+   this.render('newOneToManyEvent');
+});
