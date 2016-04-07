@@ -17,16 +17,16 @@ Router.route('/pageTwo', function () {
 });
 
 Router.route('/login', function (){
-    this.render('login')
-    this.layout('blankLayout')
+    this.render('loginUserTemplate');
+    this.layout('blankLayout');
 
 });
 Router.route('/register', function(){
-    this.render('registerUser')
-    this.layout('blankLayout')
+    this.render('registerUser');
+    this.layout('blankLayout');
 });
 Router.route('/', function () {
-    Router.go('pageOne');
+    Router.render('pageOne');
 });
 
 Router.route('/userProfile', function (){
