@@ -3,8 +3,19 @@
  */
 if(Meteor.isServer){
     Meteor.methods({
-        'loginUser': function(user){
+        'loginUser': function(user,forwardingPage){
+            console.log('Made it into loginUser');
+
             Meteor.loginWithPassword(user.email,user.password);
+
+            if (Meteor.user()){
+                Router.render(forwardingPage);
+            }
+            else{
+                Router.render('error');
+            }
+       
+       
         },
 
         'logoutUser':function(){
