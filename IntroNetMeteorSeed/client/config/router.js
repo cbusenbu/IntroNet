@@ -7,9 +7,6 @@ Router.configure({
 
 });
 
-//
-// Example pages routes
-//
 
 Router.route('/pageOne', function () {
     this.render('pageOne');
@@ -45,18 +42,9 @@ Router.route('/newEvent', function (){
 });
 
 Router.route('/newOneToOneEvent', function(){
-<<<<<<< HEAD
-   this.render('newOneToOneEvent');
-});
-
-Router.route('/newOneToManyEvent', function(){
-   this.render('newOneToManyEvent');
-});
-=======
     this.render('newOneToOneEvent')
 });
 
 Router.route('/newOneToManyEvent', function(){
     this.render('newOneToManyEvent')
 });
->>>>>>> 06aef5e5ce0f33c7bed0c93dca123285eb5e88f3
