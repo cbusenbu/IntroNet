@@ -1,3 +1,6 @@
+/**
+ * Created by Chas on 4/6/16.
+ */
 Router.configure({
     layoutTemplate: 'mainLayout',
     notFoundTemplate: 'notFound'
@@ -17,15 +20,17 @@ Router.route('/pageTwo', function () {
 });
 
 Router.route('/login', function (){
-    this.render('login')
-    this.layout('blankLayout')
+    this.render('loginUserTemplate');
+    this.layout('blankLayout');
 
 });
 Router.route('/register', function(){
-    this.render('registerUser')
-    this.layout('blankLayout')
+    this.render('registerUser');
+    this.layout('blankLayout');
 });
-
+Router.route('/', function () {
+    Router.render('pageOne');
+});
 
 Router.route('/userProfile', function (){
     this.render('userProfile');
@@ -36,13 +41,22 @@ Router.route('/eventRegistrationOne', function (){
 });
 
 Router.route('/newEvent', function (){
-   this.render('newEvent');
+    this.render('newEvent');
 });
 
 Router.route('/newOneToOneEvent', function(){
+<<<<<<< HEAD
    this.render('newOneToOneEvent');
 });
 
 Router.route('/newOneToManyEvent', function(){
    this.render('newOneToManyEvent');
 });
+=======
+    this.render('newOneToOneEvent')
+});
+
+Router.route('/newOneToManyEvent', function(){
+    this.render('newOneToManyEvent')
+});
+>>>>>>> 06aef5e5ce0f33c7bed0c93dca123285eb5e88f3
