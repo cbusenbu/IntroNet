@@ -1,12 +1,12 @@
+/**
+ * Created by Chas on 4/6/16.
+ */
 Router.configure({
     layoutTemplate: 'mainLayout',
     notFoundTemplate: 'notFound'
 
 });
 
-//
-// Example pages routes
-//
 
 Router.route('/pageOne', function () {
     this.render('pageOne');
@@ -17,36 +17,34 @@ Router.route('/pageTwo', function () {
 });
 
 Router.route('/login', function (){
-    this.render('login')
-    this.layout('blankLayout')
+    this.render('loginUserTemplate');
+    this.layout('blankLayout');
 
 });
 Router.route('/register', function(){
-    this.render('registerUser')
-    this.layout('blankLayout')
+    this.render('registerUser');
+    this.layout('blankLayout');
 });
-
+Router.route('/', function () {
+    Router.render('pageOne');
+});
 
 Router.route('/userProfile', function (){
     this.render('userProfile');
 });
 
-Router.route('/eventSignUpOne', function (){
-    this.render('eventSignUpOne');
+Router.route('/eventRegistrationOne', function (){
+    this.render('eventRegistrationOne');
 });
 
 Router.route('/newEvent', function (){
-   this.render('newEvent');
+    this.render('newEvent');
 });
 
-//<<<<<<< HEAD
-//=======
-//Router.route('/newOneToOneEvent', function(){
-//    this.render('newOneToOneEvent');
-//});
+Router.route('/newOneToOneEvent', function(){
+    this.render('newOneToOneEvent')
+});
 
-//Router.route('/newOneToManyEvent', function(){
- //   this.render('newOneToManyEvent');
-//});
-//>>>>>>> d3d27cac042f4b96c336a3a5d0bf527c7ff9c293
-//
+Router.route('/newOneToManyEvent', function(){
+    this.render('newOneToManyEvent')
+});
