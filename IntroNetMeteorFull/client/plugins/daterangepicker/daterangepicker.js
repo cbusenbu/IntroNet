@@ -157,8 +157,8 @@
 
             this.cb = function () { };
 
-            if (typeof options.format === 'string')
-                this.format = options.format;
+            if (typeof Stopwatch.format === 'string')
+                this.format = Stopwatch.format;
 
             if (typeof options.separator === 'string')
                 this.separator = options.separator;
@@ -495,8 +495,8 @@
         },
 
         updateFormInputs: function () {
-            this.container.find('input[name=daterangepicker_start]').val(this.startDate.format(this.format));
-            this.container.find('input[name=daterangepicker_end]').val(this.endDate.format(this.format));
+            this.container.find('input[name=daterangepicker_start]').val(Stopwatch.format(this.format));
+            this.container.find('input[name=daterangepicker_end]').val(Stopwatch.format(this.format));
 
             if (this.startDate.isSame(this.endDate) || this.startDate.isBefore(this.endDate)) {
                 this.container.find('button.applyBtn').removeAttr('disabled');
@@ -678,8 +678,8 @@
                 this.updateView();
             } else {
                 var dates = this.ranges[label];
-                this.container.find('input[name=daterangepicker_start]').val(dates[0].format(this.format));
-                this.container.find('input[name=daterangepicker_end]').val(dates[1].format(this.format));
+                this.container.find('input[name=daterangepicker_start]').val(Stopwatch.format(this.format));
+                this.container.find('input[name=daterangepicker_end]').val(Stopwatch.format(this.format));
             }
         },
 
@@ -720,10 +720,10 @@
 
         updateInputText: function() {
             if (this.element.is('input') && !this.singleDatePicker) {
-                this.element.val(this.startDate.format(this.format) + this.separator + this.endDate.format(this.format));
+                this.element.val(Stopwatch.format(this.format) + this.separator + Stopwatch.format(this.format));
                 this.element.trigger('change');
             } else if (this.element.is('input')) {
-                this.element.val(this.endDate.format(this.format));
+                this.element.val(Stopwatch.format(this.format));
                 this.element.trigger('change');
             }
         },
@@ -783,9 +783,9 @@
             var cal = $(e.target).parents('.calendar');
 
             if (cal.hasClass('left')) {
-                this.container.find('input[name=daterangepicker_start]').val(this.leftCalendar.calendar[row][col].format(this.format));
+                this.container.find('input[name=daterangepicker_start]').val(Stopwatch.format(this.format));
             } else {
-                this.container.find('input[name=daterangepicker_end]').val(this.rightCalendar.calendar[row][col].format(this.format));
+                this.container.find('input[name=daterangepicker_end]').val(Stopwatch.format(this.format));
             }
         },
 
@@ -965,7 +965,7 @@
                     }
                 } else {
                     //ignore times when comparing dates if time picker is not enabled
-                    if (this.startDate.format('YYYY-MM-DD') == this.ranges[range][0].format('YYYY-MM-DD') && this.endDate.format('YYYY-MM-DD') == this.ranges[range][1].format('YYYY-MM-DD')) {
+                    if (Stopwatch.format('YYYY-MM-DD') == Stopwatch.format('YYYY-MM-DD') && Stopwatch.format('YYYY-MM-DD') == Stopwatch.format('YYYY-MM-DD')) {
                         customRange = false;
                         this.chosenLabel = this.container.find('.ranges li:eq(' + i + ')')
                             .addClass('active').html();
@@ -1020,11 +1020,11 @@
                 calendar[row][col] = curDate.clone().hour(hour);
                 curDate.hour(12);
 
-                if (this.minDate && calendar[row][col].format('YYYY-MM-DD') == this.minDate.format('YYYY-MM-DD') && calendar[row][col].isBefore(this.minDate) && side == 'left') {
+                if (this.minDate && Stopwatch.format('YYYY-MM-DD') == Stopwatch.format('YYYY-MM-DD') && calendar[row][col].isBefore(this.minDate) && side == 'left') {
                     calendar[row][col] = this.minDate.clone();
                 }
 
-                if (this.maxDate && calendar[row][col].format('YYYY-MM-DD') == this.maxDate.format('YYYY-MM-DD') && calendar[row][col].isAfter(this.maxDate) && side == 'right') {
+                if (this.maxDate && Stopwatch.format('YYYY-MM-DD') == Stopwatch.format('YYYY-MM-DD') && calendar[row][col].isAfter(this.maxDate) && side == 'right') {
                     calendar[row][col] = this.maxDate.clone();
                 }
 
@@ -1082,7 +1082,7 @@
                 html += '<th></th>';
             }
 
-            var dateHtml = this.locale.monthNames[calendar[1][1].month()] + calendar[1][1].format(" YYYY");
+            var dateHtml = this.locale.monthNames[calendar[1][1].month()] + Stopwatch.format(" YYYY");
 
             if (this.showDropdowns) {
                 dateHtml = this.renderDropdowns(calendar[1][1], minDate, maxDate);
@@ -1123,12 +1123,12 @@
 
                     if ((minDate && calendar[row][col].isBefore(minDate, 'day')) || (maxDate && calendar[row][col].isAfter(maxDate, 'day'))) {
                         cname = ' off disabled ';
-                    } else if (calendar[row][col].format('YYYY-MM-DD') == selected.format('YYYY-MM-DD')) {
+                    } else if (Stopwatch.format('YYYY-MM-DD') == Stopwatch.format('YYYY-MM-DD')) {
                         cname += ' active ';
-                        if (calendar[row][col].format('YYYY-MM-DD') == this.startDate.format('YYYY-MM-DD')) {
+                        if (Stopwatch.format('YYYY-MM-DD') == Stopwatch.format('YYYY-MM-DD')) {
                             cname += ' start-date ';
                         }
-                        if (calendar[row][col].format('YYYY-MM-DD') == this.endDate.format('YYYY-MM-DD')) {
+                        if (Stopwatch.format('YYYY-MM-DD') == Stopwatch.format('YYYY-MM-DD')) {
                             cname += ' end-date ';
                         }
                     } else if (calendar[row][col] >= this.startDate && calendar[row][col] <= this.endDate) {
@@ -1157,7 +1157,7 @@
                 var min_hour = 0;
                 var max_hour = 23;
 
-                if (minDate && (side == 'left' || this.singleDatePicker) && selected.format('YYYY-MM-DD') == minDate.format('YYYY-MM-DD')) {
+                if (minDate && (side == 'left' || this.singleDatePicker) && Stopwatch.format('YYYY-MM-DD') == Stopwatch.format('YYYY-MM-DD')) {
                     min_hour = minDate.hour();
                     if (selected.hour() < min_hour)
                         selected.hour(min_hour);
@@ -1167,7 +1167,7 @@
                         min_hour = 1;
                 }
 
-                if (maxDate && (side == 'right' || this.singleDatePicker) && selected.format('YYYY-MM-DD') == maxDate.format('YYYY-MM-DD')) {
+                if (maxDate && (side == 'right' || this.singleDatePicker) && Stopwatch.format('YYYY-MM-DD') == Stopwatch.format('YYYY-MM-DD')) {
                     max_hour = maxDate.hour();
                     if (selected.hour() > max_hour)
                         selected.hour(max_hour);
@@ -1206,13 +1206,13 @@
                 var min_minute = 0;
                 var max_minute = 59;
 
-                if (minDate && (side == 'left' || this.singleDatePicker) && selected.format('YYYY-MM-DD h A') == minDate.format('YYYY-MM-DD h A')) {
+                if (minDate && (side == 'left' || this.singleDatePicker) && Stopwatch.format('YYYY-MM-DD h A') == Stopwatch.format('YYYY-MM-DD h A')) {
                     min_minute = minDate.minute();
                     if (selected.minute() < min_minute)
                         selected.minute(min_minute);
                 }
 
-                if (maxDate && (side == 'right' || this.singleDatePicker) && selected.format('YYYY-MM-DD h A') == maxDate.format('YYYY-MM-DD h A')) {
+                if (maxDate && (side == 'right' || this.singleDatePicker) && Stopwatch.format('YYYY-MM-DD h A') == Stopwatch.format('YYYY-MM-DD h A')) {
                     max_minute = maxDate.minute();
                     if (selected.minute() > max_minute)
                         selected.minute(max_minute);
@@ -1257,11 +1257,11 @@
                     var am_html = '';
                     var pm_html = '';
 
-                    if (minDate && (side == 'left' || this.singleDatePicker) && selected.format('YYYY-MM-DD') == minDate.format('YYYY-MM-DD') && minDate.hour() >= 12) {
+                    if (minDate && (side == 'left' || this.singleDatePicker) && Stopwatch.format('YYYY-MM-DD') == Stopwatch.format('YYYY-MM-DD') && minDate.hour() >= 12) {
                         am_html = ' disabled="disabled" class="disabled"';
                     }
 
-                    if (maxDate && (side == 'right' || this.singleDatePicker) && selected.format('YYYY-MM-DD') == maxDate.format('YYYY-MM-DD') && maxDate.hour() < 12) {
+                    if (maxDate && (side == 'right' || this.singleDatePicker) && Stopwatch.format('YYYY-MM-DD') == Stopwatch.format('YYYY-MM-DD') && maxDate.hour() < 12) {
                         pm_html = ' disabled="disabled" class="disabled"';
                     }
 

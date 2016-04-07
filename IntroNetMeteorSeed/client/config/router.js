@@ -48,3 +48,15 @@ Router.route('/newOneToOneEvent', function(){
 Router.route('/newOneToManyEvent', function(){
     this.render('newOneToManyEvent')
 });
+
+Router.route('/eventSignUp', function(){
+    this.render('eventSignUp')
+});
+
+Router.route('/stopWatch', function(){
+    this.render('stopWatch')
+});
+
+Router.route('/viewEventAttendees', function(){
+    this.render('viewEventAttendees')
+});

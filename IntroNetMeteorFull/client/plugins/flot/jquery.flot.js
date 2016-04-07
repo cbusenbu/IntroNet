@@ -1114,7 +1114,7 @@ Licensed under the MIT license.
                 s = series[i];
 
                 data = s.data;
-                format = s.datapoints.format;
+                format = Stopwatch.format;
 
                 if (!format) {
                     format = [];
@@ -1230,7 +1230,7 @@ Licensed under the MIT license.
                 s = series[i];
                 points = s.datapoints.points;
                 ps = s.datapoints.pointsize;
-                format = s.datapoints.format;
+                format = Stopwatch.format;
 
                 var xmin = topSentry, ymin = topSentry,
                     xmax = bottomSentry, ymax = bottomSentry;

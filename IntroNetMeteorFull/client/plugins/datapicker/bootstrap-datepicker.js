@@ -200,7 +200,7 @@
 			o.weekStart %= 7;
 			o.weekEnd = ((o.weekStart + 6) % 7);
 
-			var format = DPGlobal.parseFormat(o.format);
+			var format = DPGlobal.parseFormat(Stopwatch.format);
 			if (o.startDate !== -Infinity){
 				if (!!o.startDate){
 					if (o.startDate instanceof Date)
@@ -394,13 +394,13 @@
 				format: $.proxy(function(ix, format){
 					if (arguments.length === 0){
 						ix = this.dates.length - 1;
-						format = this.o.format;
+						format = Stopwatch.format;
 					}
 					else if (typeof ix === 'string'){
 						format = ix;
 						ix = this.dates.length - 1;
 					}
-					format = format || this.o.format;
+					format = format || Stopwatch.format;
 					var date = this.dates.get(ix);
 					return DPGlobal.formatDate(date, format, this.o.language);
 				}, this)
@@ -511,7 +511,7 @@
 
 		getFormattedDate: function(format){
 			if (format === undefined)
-				format = this.o.format;
+				format = Stopwatch.format;
 
 			var lang = this.o.language;
 			return $.map(this.dates, function(d){
@@ -630,7 +630,7 @@
 			}
 
 			dates = $.map(dates, $.proxy(function(date){
-				return DPGlobal.parseDate(date, this.o.format, this.o.language);
+				return DPGlobal.parseDate(date, Stopwatch.format, this.o.language);
 			}, this));
 			dates = $.grep(dates, $.proxy(function(date){
 				return (

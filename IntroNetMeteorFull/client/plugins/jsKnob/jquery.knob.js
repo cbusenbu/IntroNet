@@ -246,7 +246,7 @@
 
             this.isInit = true;
 
-            this.$.val(this.o.format(this.v));
+            this.$.val(Stopwatch.format(this.v));
             this._draw();
 
             return this;
@@ -524,7 +524,7 @@
 
                 this.cv = this.o.stopper ? max(min(v, this.o.max), this.o.min) : v;
                 this.v = this.cv;
-                this.$.val(this.o.format(this.v));
+                this.$.val(Stopwatch.format(this.v));
                 this._draw();
             } else {
                 return this.v;
@@ -715,7 +715,7 @@
 
         this.change = function (v) {
             this.cv = v;
-            this.$.val(this.o.format(v));
+            this.$.val(Stopwatch.format(v));
         };
 
         this.angle = function (v) {
