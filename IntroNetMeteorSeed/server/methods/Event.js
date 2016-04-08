@@ -1,17 +1,22 @@
 /**
  * Created by Chas on 4/6/16.
  */
-/**
+
 if(Meteor.isServer){
-    Events = new Mongo.Collection('events');
     Meteor.methods({
         'insertEvent': function(event){
             Events.insert({
-                creator: event.creator,
-
-            })
+                creatorID: event.creatorID,
+                createdAt: event.createdAt,
+                name: event.eventName,
+                location: event.eventLocation,
+                startDate: event.startDate,
+                endDate:event.endDate,
+                activityCount: event.activityCount,
+                totalTime: event.totalTime,
+                breakLength: event.breakLength
+            });
 
         }
     })
 }
-**/

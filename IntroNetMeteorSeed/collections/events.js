@@ -1,7 +1,10 @@
 /**
  * Created by Chas on 4/2/16.
  */
-Events = new Mongo.Collection( 'events' );
+if(Meteor.isServer){
+    Events = new Mongo.Collection( 'events' );
+
+}
 /*
 Events.allow({
     insert() { return false; },
