@@ -69,19 +69,19 @@
                                             <tr>
                                                 <td>Option 1</td>
                                                 <td><input type="radio" name="pref-1-1" value="dislike"/></td>
-                                                <td><input type="radio" name="pref-1-1" value="neutral"/></td>
+                                                <td><input type="radio" name="pref-1-1" value="neutral" checked/></td>
                                                 <td><input type="radio" name="pref-1-1" value="like"/></td>
                                             </tr>
                                             <tr>
                                                 <td>Option 2</td>
                                                 <td><input type="radio" name="pref-1-2" value="dislike"/></td>
-                                                <td><input type="radio" name="pref-1-2" value="neutral"/></td>
+                                                <td><input type="radio" name="pref-1-2" value="neutral" checked/></td>
                                                 <td><input type="radio" name="pref-1-2" value="like"/></td>
                                             </tr>
                                             <tr>
                                                 <td>Option 3</td>
                                                 <td><input type="radio" name="pref-1-3" value="dislike"/></td>
-                                                <td><input type="radio" name="pref-1-3" value="neutral"/></td>
+                                                <td><input type="radio" name="pref-1-3" value="neutral" checked/></td>
                                                 <td><input type="radio" name="pref-1-3" value="like"/></td>
                                             </tr>
                                         </table>
@@ -112,13 +112,13 @@
                                             <tr>
                                                 <td>Like Me</td>
                                                 <td><input type="radio" name="pref-2-same" value="dislike"/></td>
-                                                <td><input type="radio" name="pref-2-same" value="neutral"/></td>
+                                                <td><input type="radio" name="pref-2-same" value="neutral" checked/></td>
                                                 <td><input type="radio" name="pref-2-same" value="like"/></td>
                                             </tr>
                                             <tr>
                                                 <td>Unlike Me</td>
                                                 <td><input type="radio" name="pref-2-diff" value="dislike"/></td>
-                                                <td><input type="radio" name="pref-2-diff" value="neutral"/></td>
+                                                <td><input type="radio" name="pref-2-diff" value="neutral" checked/></td>
                                                 <td><input type="radio" name="pref-2-diff" value="like"/></td>
                                             </tr>
                                         </table>
@@ -139,13 +139,22 @@
                     <div class="ibox-content">
                         <table>
                             <tr>
-
+                                <th></th>
+                                <th>Date</th>
+                                <th>Hour (24)</th>
+                                <th>Minute</th>
+                            </tr>
+                            <tr>
                                 <td><label>Will you be arriving late?</label></td>
-                                <td><input type="date" id="lateArrival"></td>
+                                <td><input type="date" id="lateArrivalDay"></td>
+                                <td><input type="number" min="0" max="23" id="lateArrivalHour"></td>
+                                <td><input type="number" min="0" max="59" id="lateArrivalMin"></td>
                             </tr>
                             <tr>
                                 <td><label>Will you be leaving early?</label></td>
-                                <td><input type="date" id="earlyDeparture"></td>
+                                <td><input type="date" id="earlyDepartureDay"></td>
+                                <td><input type="number" min="0" max="23" id="earlyDepartureHour"></td>
+                                <td><input type="number" min="0" max="59" id="earlyDepartureMin"></td>
                             </tr>
                         </table>
                         <div class="checkbox checkbox-primary">

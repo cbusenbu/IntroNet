@@ -1,12 +1,13 @@
 /**
  * Created by Chas on 4/6/16.
  */
-Template.loginUserTemplate.events({
+Template.newOneToManyEvent.events({
     'submit form' (event, template){
         event.preventDefault();
 
         let eventObject = {
-
+            creatorID: Meteor.userId(),
+            createdAt: new Date(),
             eventName: template.find("[name = 'eventName']").value,
             eventLocation: template.find("[name = 'eventLocation']").value,
             startDate: template.find("[name = 'startDate']").value,
@@ -14,12 +15,14 @@ Template.loginUserTemplate.events({
             activityCount: template.find("[name = 'activityCount']").value,
             activityLength: template.find("[name = 'activityLength']").value,
             totalTime: template.find("[name = 'totalTime']").value,
-            breakLength: template.find("[name = 'breakLength']").value,
-            minParticipants: template.find("[name = 'minParticipants']").value,
-            sessionCount: template.find("[name = 'sessionCount']").value
+            breakLength: template.find("[name = 'breakLength']").value
+            
 
         };
-
+    
+        Meteor.call('insertEvent',eventObject);
+        console.log('insert noted')
 
     }
+
 });
