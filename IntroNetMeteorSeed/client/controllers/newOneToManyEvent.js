@@ -8,6 +8,8 @@ Template.newOneToManyEvent.events({
         let eventObject = {
             creatorID: Meteor.userId(),
             createdAt: new Date(),
+            oneToOne: false,
+            oneToMany: true,
             eventName: template.find("[name = 'eventName']").value,
             eventLocation: template.find("[name = 'eventLocation']").value,
             startDate: template.find("[name = 'startDate']").value,

@@ -21,21 +21,21 @@
                 <form role="form">
                     <div class="form-group">
                         <label>Event Name</label>
-                        <input type="text" class="form-control" id="eventName">
+                        <input type="text" class="form-control" id="eventName" name = "eventName">
                     </div>
                     <div class="form-group">
                         <label>Event Location</label>
-                        <input type="text" class="form-control" id="eventLocation">
+                        <input type="text" class="form-control" id="eventLocation" name = "eventLocation">
                     </div>
                     <div class="form-group" id="dateRange">
                         <h3>Event Dates:</h3>
                         <table>
                             <tr>
                             <td style=""><label class="font-normal">Start Date:</label></td>
-                            <td><input type="date" id="startDate"></td>
+                            <td><input type="date" id="startDate" name = "startDate"></td>
                             <td></td>
-                                <td style=""><label class="font-normal">End Date:</label></td>
-                                <td><input type="date" id="endDate"></td>
+                                <td style=""><label class="font-normal" >End Date:</label></td>
+                                <td><input type="date" id="endDate" name = "endDate"></td>
                             </tr>
                         </table>
                     </div>
@@ -46,15 +46,15 @@
                             <table>
                                 <tr>
                                     <td>Number of Activities:</td>
-                                    <td><input type="number" min="0" id="actvtyCount"></td>
+                                    <td><input type="number" min="0" id="actvtyCount" name = "activityCount"></td>
                                 </tr>
                                 <tr>
                                     <td>Activity Length (min):</td>
-                                    <td><input type="number" min="0" id="actvtyLength"></td>
+                                    <td><input type="number" min="0" id="actvtyLength" name = "activityLength"></td>
                                 </tr>
                                 <tr>
                                     <td>Total Time (min):</td>
-                                    <td><input type="number" min="0" id="totalTime"></td>
+                                    <td><input type="number" min="0" id="totalTime" name = "totalTime"></td>
                                 </tr>
                                 <tr>
                                     <td></td>
@@ -62,7 +62,7 @@
                                 </tr>
                                 <tr>
                                     <td>Break Length (min):</td>
-                                    <td><input type="number" min="0" id="breakLength" value="2"></td>
+                                    <td><input type="number" min="0" id="breakLength" value="2" name = "breakLength"></td>
                                 </tr>
                                 <tr>
                                     <td>Minimum Participants:</td>

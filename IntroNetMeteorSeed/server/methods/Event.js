@@ -8,6 +8,8 @@ if(Meteor.isServer){
             Events.insert({
                 creatorID: event.creatorID,
                 createdAt: event.createdAt,
+                oneToOne:event.oneToOne,
+                oneToMany: event.oneToMany,
                 name: event.eventName,
                 location: event.eventLocation,
                 startDate: event.startDate,
