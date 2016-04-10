@@ -22,9 +22,10 @@ Template.newOneToManyEvent.events({
             
 
         };
-    
-        Meteor.call('insertEvent',eventObject);
-        
+
+        Meteor.call('insertEvent',eventObject,function(error,result){
+            Meteor.call('addEventToUser', Meteor.userId(),result)
+        });
         console.log('insert noted')
 
     }
