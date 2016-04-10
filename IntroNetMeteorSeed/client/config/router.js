@@ -37,6 +37,10 @@ Router.route('/eventRegistrationOne', function (){
     this.render('eventRegistrationOne');
 });
 
+Router.route('/eventRegistrationMany', function (){
+    this.render('eventRegistrationMany');
+});
+
 Router.route('/newEvent', function (){
     this.render('newEvent');
 });
