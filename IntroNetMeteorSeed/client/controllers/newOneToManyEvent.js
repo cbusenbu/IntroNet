@@ -6,6 +6,7 @@ Template.newOneToManyEvent.events({
         event.preventDefault();
 
         let eventObject = {
+            _id: new Mongo.ObjectID.valueOf(),
             creatorID: Meteor.userId(),
             createdAt: new Date(),
             oneToOne: false,
@@ -23,6 +24,7 @@ Template.newOneToManyEvent.events({
         };
     
         Meteor.call('insertEvent',eventObject);
+        
         console.log('insert noted')
 
     }

@@ -9,7 +9,9 @@ if(Meteor.isServer){
                 email:user.email,
                 password:user.password,
                 profile:{
-                    name:user.profile.actualName
+                    name:user.profile.actualName,
+                    eventsOwned: [],
+                    eventsAttended: []
                 }
             });
         }

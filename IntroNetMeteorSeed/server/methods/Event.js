@@ -5,7 +5,8 @@
 if(Meteor.isServer){
     Meteor.methods({
         'insertEvent': function(event){
-            Events.insert({
+            
+            return Events.insert({
                 creatorID: event.creatorID,
                 createdAt: event.createdAt,
                 oneToOne:event.oneToOne,
@@ -18,7 +19,19 @@ if(Meteor.isServer){
                 totalTime: event.totalTime,
                 breakLength: event.breakLength
             });
+            
 
+        },
+        'addEventToUser': function(userID,eventID){
+            Meteor.users.update({_id: userID}, {$addToSet: { eventsOwned : eventID}});
+        },
+
+        'modifyEvent': function(eventID, changes){
+            Events.update(eventID, changes);
+        },
+
+        'getEventById': function(eventID){
+            return Events.find({})
         }
     })
 }
