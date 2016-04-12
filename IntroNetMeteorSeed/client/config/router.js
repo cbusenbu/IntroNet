@@ -64,7 +64,14 @@ Router.route('/eventRegistrationOne/:_id', function (){
 Router.route('/eventRegistrationMany/:_id', function (){
     this.render('eventRegistrationMany',{
         data: function(){
-            return Events.findOne({_id: this.params._id})
+            Meteor.call('getEventById',this.params._id,function(error,result){
+                if(error){
+                    alert('Error');
+                }else{
+                    console.log(result);
+                    Session.set('currentEventRegistrationMany',result);
+                }
+            });
         }
     });
 });
