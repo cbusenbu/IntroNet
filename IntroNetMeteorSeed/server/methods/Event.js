@@ -31,7 +31,9 @@ if(Meteor.isServer){
         },
 
         'getEventById': function(eventID){
-            return Events.find({})
+
+            var eventToReturn = Events.findOne({_id: eventID});
+            return eventToReturn;
         }
     })
 }
