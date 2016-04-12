@@ -99,3 +99,7 @@ Router.route('/stopWatch', function(){
 Router.route('/viewEventAttendees', function(){
     this.render('viewEventAttendees')
 });
+
+Router.route('/vipSettingList', function(){
+    this.render('vipSettingList')
+});
