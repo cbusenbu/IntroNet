@@ -1,12 +1,17 @@
 /**
  * Created by Chas on 4/6/16.
  */
-Router.configure({
+ApplicationController= RouteController.extend({
     layoutTemplate: 'mainLayout',
     notFoundTemplate: 'notFound'
 
 });
 
+
+Router.configure({
+    controller: 'ApplicationController'
+
+});
 
 Router.route('/pageOne', function () {
     this.render('pageOne');
@@ -26,7 +31,7 @@ Router.route('/register', function(){
     this.layout('blankLayout');
 });
 Router.route('/', function () {
-    Router.render('pageOne');
+    this.render('pageOne');
 });
 
 Router.route('/userProfile', function (){
@@ -52,6 +57,7 @@ Router.route('/eventRegistrationOne/:_id', function (){
                 if(error){
                     alert('Error');
                 }else{
+                    console.log(result);
                     Session.set('currentEventRegistration',result);
                 }
             });
