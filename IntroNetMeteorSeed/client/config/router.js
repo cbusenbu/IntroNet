@@ -52,7 +52,6 @@ Router.route('/eventRegistrationOne/:_id', function (){
                 if(error){
                     alert('Error');
                 }else{
-                    console.log(result);
                     Session.set('currentEventRegistration',result);
                 }
             });

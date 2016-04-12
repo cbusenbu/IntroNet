@@ -1,10 +1,12 @@
 /**
  * Created by Chas on 4/11/16.
  */
+/*
 Template.eventRegistrationOne.rendered = function(){
 
     console.log(Session.get('currentEventRegistration'));
 };
+*/
 
 Template.eventRegistrationOne.helpers({
     showEventName: function(){
