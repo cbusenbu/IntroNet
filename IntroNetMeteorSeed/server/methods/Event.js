@@ -17,7 +17,9 @@ if(Meteor.isServer){
                 endDate:event.endDate,
                 activityCount: event.activityCount,
                 totalTime: event.totalTime,
-                breakLength: event.breakLength
+                breakLength: event.breakLength,
+                attendees:[],
+                preference:[]
             });
             
 
@@ -34,6 +36,22 @@ if(Meteor.isServer){
 
             var eventToReturn = Events.findOne({_id: eventID});
             return eventToReturn;
+        },
+        'isOwner': function(eventID){
+            var event = Events.findOne({_id:eventID});
+            return (event.creatorId == Meteor.userID());
+        },
+
+        'isAttendee': function(eventID){
+            var event = Events.findOne({_id:eventID});
+            var attendees = event.attendees;
+
+            for(i=0; i <attendees.length;i++){
+                if (attendees[i] == Meteor.userId()){
+                    return true;
+                }
+            }
+            return false;
         }
     })
 }

@@ -57,7 +57,6 @@ Router.route('/eventRegistrationOne/:_id', function (){
                 if(error){
                     alert('Error');
                 }else{
-                    console.log(result);
                     Session.set('currentEventRegistration',result);
                 }
             });
@@ -74,7 +73,7 @@ Router.route('/eventRegistrationMany/:_id', function (){
                     alert('Error');
                 }else{
                     console.log(result);
-                    Session.set('currentEventRegistrationMany',result);
+                    Session.set('currentEventRegistration',result);
                 }
             });
         }
