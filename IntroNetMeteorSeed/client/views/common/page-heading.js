@@ -1,6 +1,5 @@
 Template.pageHeading.helpers({
 
-    // Route for Home link in breadcrumbs
-    home: 'pageOne'
-
+    // Route links in breadcrumbs
+    home: 'home'
 });
