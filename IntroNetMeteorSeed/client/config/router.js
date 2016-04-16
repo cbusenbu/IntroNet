@@ -26,7 +26,7 @@ Router.route('/register', function(){
     this.layout('blankLayout');
 });
 Router.route('/', function () {
-    this.render('pageOne');
+    this.render('home');
 });
 
 Router.route('/userProfile', function (){

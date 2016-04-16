@@ -2,17 +2,25 @@
 
     {{> pageHeading }}
 
-    <div class="wrapper wrapper-content animated fadeInRight">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="text-center m-t-lg">
-                    <h1>
-                        Welcome to IntroNet
-                    </h1>
-                    <small>
-                        A website dedicated to running and optimizing networking events.<br>
-                        Use the tabs on the left to get started.
-                    </small>
+    <div>
+        <h1 class="logo-name" style="text-align:center">IntroNet</h1>
+    </div>
+    <div class="col-lg-offset-4 col-lg-4 text-center">
+        <div class="wrapper wrapper-content animated fadeInRight">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="text-center m-t-lg">
+                        <h2><b>
+                            Welcome to IntroNet
+                        </b></h2>
+                        <p>
+                            A website dedicated to running and optimizing networking events.
+                        </p>
+                        <br>
+                        <a class="btn btn-lg btn-primary btn-block" href ="{{pathFor route='login'}}">Log In</a>
+                        <br>
+                        <a href ="{{pathFor route='register'}}">Create an Account</a>
+                    </div>
                 </div>
             </div>
         </div>
