@@ -12,7 +12,7 @@
         }
     </style>
 
-    {{> pageHeading title='Event Details' category='Events Attending'}}
+    {{> pageHeading title='Event Details' category='Events Owned'}}
 
     <div class="wrapper wrapper-content animated fadeInRight">
         <div class="row">
@@ -36,6 +36,8 @@
                             <b>Event Name: </b><label id="eventName">{{showEventName}}</label><br>
                             <b>Event Location: </b><label id="eventLocation">{{showLocation}}</label><br>
                             <b>Event Dates: </b><label id="eventStart">{{showStartDate}}</label> to <label id="eventEnd">{{showEndDate}}</label><br>
+                            <br>
+                            <b>Event Signup URL: </b><label id="eventURL">{{showURL}}</label><br>
                         </div>
                         <div class="col-lg-6">
                             <b>Event Type: </b><label id="eventType">{{getEventType}}</label><br>
