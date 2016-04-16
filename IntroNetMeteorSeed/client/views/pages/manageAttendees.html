@@ -1,0 +1,69 @@
+
+<template name="manageAttendees">
+
+    {{> pageHeading title='Manage Attendees' category="Events Owned"}}
+
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="row">
+            <form>
+                <div class="col-lg-8">
+                    <div class="ibox float-e-margins">
+                        <div class="ibox-title">
+                            <h5>Attendees</h5>
+                        </div>
+                        <div class="ibox-content">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>VIP</th>
+                                        <th>Name</th>
+                                        <th>Biography</th>
+                                        <th>Ice Breakers</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><input id="vip_userID" name="vip_userID" type="checkbox"></td>
+                                        <td>Mark</td>
+                                        <td>I work and do other stuff</td>
+                                        <td>Ask me about chess.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><input id="vip_userID" name="vip_userID" type="checkbox"></td>
+                                        <td>Jacob</td>
+                                        <td>Thornton</td>
+                                        <td>fat</td>
+                                    </tr>
+                                    <tr>
+                                        <td><input id="vip_userID" name="vip_userID" type="checkbox"></td>
+                                        <td>Larry</td>
+                                        <td>the Bird</td>
+                                        <td>@twitter</td>
+                                    </tr>
+                                    <tr>
+                                        <td><input id="vip_userID" name="vip_userID" type="checkbox"></td>
+                                        <td>Chas</td>
+                                        <td>good</td>
+                                        <td>First</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="form-group">
+            <div class="col-lg-offset-1 col-lg-1">
+                <table>
+                    <tr>
+                        <td><button class="btn btn-sm btn-primary pull-left m-t-n-xs" type="submit"><strong>Save Changes</strong></button></td>
+                        <td><button class="btn btn-sm btn-primary pull-left m-t-n-xs" type="button"><strong>Email Attendees</strong></button></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</template>
+
