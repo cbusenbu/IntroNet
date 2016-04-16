@@ -10,15 +10,10 @@ ApplicationController= RouteController.extend({
 
 Router.configure({
     controller: 'ApplicationController'
-
 });
 
 Router.route('/pageOne', function () {
     this.render('pageOne');
-});
-
-Router.route('/pageTwo', function () {
-    this.render('pageTwo');
 });
 
 Router.route('/login', function (){
@@ -48,6 +43,10 @@ Router.route('/eventsAttending', function (){
 
 Router.route('/manageAttendees', function (){
     this.render('manageAttendees');
+});
+
+Router.route('/home', function (){
+    this.render('home');
 });
 
 /*
@@ -115,8 +114,4 @@ Router.route('/viewEventAttendees', function(){
 
 Router.route('/eventDetails', function(){
     this.render('eventDetails')
-});
-
-Router.route('/vipSettingList', function(){
-    this.render('vipSettingList')
 });
