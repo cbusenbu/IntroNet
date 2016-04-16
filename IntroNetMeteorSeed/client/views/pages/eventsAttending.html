@@ -1,10 +1,10 @@
-<template name="eventsOwned">
+<template name="eventsAttending">
 
     <style>
         th, td {
             padding: 3px;
         }
-        
+
         td{
             border-bottom: 1px solid darkgray;}
 
@@ -14,47 +14,39 @@
         }
     </style>
 
-    {{> pageHeading title='Manage Events You Own' }}
+    {{> pageHeading title='Events Attending' }}
 
     <div class="wrapper wrapper-content animated fadeInRight">
         <div class="col-lg-10">
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
-                    <h3>Events You Own</h3>
+                    <h3>Events You've Registered For</h3>
                 </div>
                 <div class="ibox-content">
                     <table>
                         <tr>
-                            <th>Name</th>
-                            <th>Start</th>
-                            <th>Location</th>
+                            <td><b>(Event Name)</b></td>
+                            <td>(Start Date)</td>
+                            <td>(Location)</td>
+                            <td><a class="btn" type="button" href ="{{pathFor route='pageOne'}}">Attendees</a></td>
+                            <td><a class="btn" type="button" href ="{{pathFor route='pageOne'}}">Preferences</a></td>
+                            <td><a class="btn" type="button" href ="{{pathFor route='pageOne'}}">Schedule</a></td>
                         </tr>
                         <tr>
                             <td><b>(Event Name)</b></td>
                             <td>(Start Date)</td>
                             <td>(Location)</td>
-                            <td><a class="btn" type="button" href ="{{pathFor route='pageOne'}}">Event Details</a></td>
                             <td><a class="btn" type="button" href ="{{pathFor route='pageOne'}}">Attendees</a></td>
-                            <td><a class="btn" type="button" href ="{{pathFor route='pageOne'}}">Schedules</a></td>
-                            <td><a class="btn" type="button" href ="{{pathFor route='stopWatch'}}">Event Clock</a></td>
+                            <td><a class="btn" type="button" href ="{{pathFor route='pageOne'}}">Preferences</a></td>
+                            <td><a class="btn" type="button" href ="{{pathFor route='pageOne'}}">Schedule</a></td>
                         </tr>
                         <tr>
                             <td><b>(Event Name)</b></td>
                             <td>(Start Date)</td>
                             <td>(Location)</td>
-                            <td><a class="btn" type="button" href ="{{pathFor route='pageOne'}}">Event Details</a></td>
                             <td><a class="btn" type="button" href ="{{pathFor route='pageOne'}}">Attendees</a></td>
-                            <td><a class="btn" type="button" href ="{{pathFor route='pageOne'}}">Schedules</a></td>
-                            <td><a class="btn" type="button" href ="{{pathFor route='stopWatch'}}">Event Clock</a></td>
-                        </tr>
-                        <tr>
-                            <td><b>(Event Name)</b></td>
-                            <td>(Start Date)</td>
-                            <td>(Location)</td>
-                            <td><a class="btn" type="button" href ="{{pathFor route='pageOne'}}">Event Details</a></td>
-                            <td><a class="btn" type="button" href ="{{pathFor route='pageOne'}}">Attendees</a></td>
-                            <td><a class="btn" type="button" href ="{{pathFor route='pageOne'}}">Schedules</a></td>
-                            <td><a class="btn" type="button" href ="{{pathFor route='stopWatch'}}">Event Clock</a></td>
+                            <td><a class="btn" type="button" href ="{{pathFor route='pageOne'}}">Preferences</a></td>
+                            <td><a class="btn" type="button" href ="{{pathFor route='pageOne'}}">Schedule</a></td>
                         </tr>
                     </table>
                 </div>

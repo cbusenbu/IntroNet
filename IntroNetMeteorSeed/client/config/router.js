@@ -42,6 +42,10 @@ Router.route('/eventsOwned', function (){
     this.render('eventsOwned');
 });
 
+Router.route('/eventsAttending', function (){
+    this.render('eventsAttending');
+});
+
 /*
 Router.route('eventRegistration/:_id', function(){
 
