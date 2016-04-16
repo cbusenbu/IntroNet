@@ -37,6 +37,11 @@ Router.route('/', function () {
 Router.route('/userProfile', function (){
     this.render('userProfile');
 });
+
+Router.route('/eventsOwned', function (){
+    this.render('eventsOwned');
+});
+
 /*
 Router.route('eventRegistration/:_id', function(){
 
