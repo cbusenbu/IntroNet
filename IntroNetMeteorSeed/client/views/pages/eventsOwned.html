@@ -2,8 +2,9 @@
 
     <style>
         th, td {
-            padding: 5px;
+            padding: 3px;
             text-align: center;
+            border-bottom: 1px solid black;
         }
 
         input[type="number"]{
@@ -15,102 +16,40 @@
     {{> pageHeading title='Manage Events You Own' }}
 
     <div class="wrapper wrapper-content animated fadeInRight">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="text-left m-t-lg">
-                    <h1>
-                        Welcome to the Event Management Area
-                    </h1>
-                    <div class="hr-line-dashed"></div>
+        <div class="col-lg-10">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h3>Your Events</h3>
                 </div>
-            </div>
-        </div>
-
-
-        <div class="col-lg-8">
-            <div class="ibox">
-                <div class="ibox-title"><h3>Event Information</h3></div>
                 <div class="ibox-content">
-                    <b>Event Name: </b><label id="eventName">{{showEventName}}</label><br>
-                    <b>Event Location: </b><label id="eventLocation">{{showEventLocations}}</label><br>
-                    <b>Event Dates: </b><label id="eventStart">{{showStartDate}}</label> to <label id="eventEnd">{{showEndDate}}</label><br>
+                    <table>
+                        <tr>
+                            <td><b>(Event Name)</b></td>
+                            <td><b>(Start Date)</b></td>
+                            <td><a class="btn" type="button" href ="{{pathFor route='pageOne'}}">Event Details</a></td>
+                            <td><a class="btn" type="button" href ="{{pathFor route='pageOne'}}">Attendees</a></td>
+                            <td><a class="btn" type="button" href ="{{pathFor route='pageOne'}}">Schedules</a></td>
+                            <td><a class="btn" type="button" href ="{{pathFor route='stopWatch'}}">Event Clock</a></td>
+                        </tr>
+                        <tr>
+                            <td><b>(Event Name)</b></td>
+                            <td><b>(Start Date)</b></td>
+                            <td><a class="btn" type="button" href ="{{pathFor route='pageOne'}}">Event Details</a></td>
+                            <td><a class="btn" type="button" href ="{{pathFor route='pageOne'}}">Attendees</a></td>
+                            <td><a class="btn" type="button" href ="{{pathFor route='pageOne'}}">Schedules</a></td>
+                            <td><a class="btn" type="button" href ="{{pathFor route='stopWatch'}}">Event Clock</a></td>
+                        </tr>
+                        <tr>
+                            <td><b>(Event Name)</b></td>
+                            <td><b>(Start Date)</b></td>
+                            <td><a class="btn" type="button" href ="{{pathFor route='pageOne'}}">Event Details</a></td>
+                            <td><a class="btn" type="button" href ="{{pathFor route='pageOne'}}">Attendees</a></td>
+                            <td><a class="btn" type="button" href ="{{pathFor route='pageOne'}}">Schedules</a></td>
+                            <td><a class="btn" type="button" href ="{{pathFor route='stopWatch'}}">Event Clock</a></td>
+                        </tr>
+                    </table>
                 </div>
             </div>
         </div>
-
-        <form class="form-horizontal">
-            <div class="col-lg-8">
-                <div class="ibox float-e-margins">
-                    <div class="ibox-title">
-                        <h3>Presentation</h3>
-                    </div>
-                    <div class="ibox-content">
-                        <form class="form-horizontal">
-                            <div class="form-group">
-                                <div class="col-lg-offset-1">
-                                    <div class="checkbox checkbox-primary">
-                                        <input id="isPresenting" name="isPresenting" type="checkbox">
-                                        <label for="isPresenting">
-                                            <b>I plan to present at this Event</b>
-                                        </label>
-                                    </div>
-                                </div>
-                                <br>
-
-                                <!-- Hide this when isPresenting!=true -->
-                                <div id="presentationDetails">
-                                    <div class="col-lg-offset-1 col-lg-6">
-                                        <div class="form-group">
-                                            <label><h4>Presentation Title</h4></label>
-                                            <input type="text" class="form-control" name="title" id="title">
-                                        </div>
-                                        <div class="form-group">
-                                            <label><h4>Presentation Abstract</h4></label>
-                                            <textarea class="form-control" name="biography" rows="6"></textarea>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                    <br>
-                    *Preference options for <b>non-presenters</b> are available in the "Upcoming Events" area
-                </div>
-            </div>
-            <div class="col-lg-8">
-                <div class="ibox float-e-margins">
-                    <div class="ibox-title">
-                        <h3>Special Considerations</h3>
-                    </div>
-                    <div class="ibox-content">
-                        <table>
-                            <tr>
-                                <th></th>
-                                <th>Date</th>
-                                <th>Hour (24)</th>
-                                <th>Minute</th>
-                            </tr>
-                            <tr>
-                                <td><label>Will you be arriving late?</label></td>
-                                <td><input type="date" id="lateArrivalDay"></td>
-                                <td><input type="number" min="0" max="23" id="lateArrivalHour"></td>
-                                <td><input type="number" min="0" max="59" id="lateArrivalMin"></td>
-                            </tr>
-                            <tr>
-                                <td><label>Will you be leaving early?</label></td>
-                                <td><input type="date" id="earlyDepartureDay"></td>
-                                <td><input type="number" min="0" max="23" id="earlyDepartureHour"></td>
-                                <td><input type="number" min="0" max="59" id="earlyDepartureMin"></td>
-                            </tr>
-                        </table>
-                    </div>
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="col-lg-offset-1 col-lg-11">
-                    <button class="btn btn-sm btn-primary pull-left m-t-n-xs" type="submit"><strong>Sign Up</strong></button>
-                </div>
-            </div>
-        </form>
     </div>
 </template>
