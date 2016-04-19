@@ -1,7 +1,9 @@
 <template name="home">
 
     {{> pageHeading }}
+    {{#if currentUser}}
 
+    {{else}}
     <div>
         <h1 class="logo-name" style="text-align:center">IntroNet</h1>
     </div>
@@ -25,4 +27,5 @@
             </div>
         </div>
     </div>
+    {{/if}}
 </template>

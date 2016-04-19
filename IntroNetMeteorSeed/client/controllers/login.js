@@ -14,7 +14,7 @@ Template.loginUserTemplate.events({
 
         Meteor.loginWithPassword(user.email,user.password);
         if (Meteor.user()){
-            Router.go('pageOne')
+            Router.go('home')
         }
 
     }

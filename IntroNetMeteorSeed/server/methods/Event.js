@@ -24,8 +24,8 @@ if(Meteor.isServer){
             
 
         },
-        'addEventToUser': function(userID,eventID){
-            Meteor.users.update({_id: userID}, {$addToSet: { eventsOwned : eventID}});
+        'addEventToOwner': function(userID,eventID){
+            Meteor.users.update({_id: userID}, {$addToSet: { "profile.eventsOwned" : eventID}});
         },
 
         'modifyEvent': function(eventID, changes){

@@ -23,7 +23,7 @@ Template.newOneToOneEvent.events({
         };
 
         Meteor.call('insertEvent',eventObject,function(error,result){
-            Meteor.call('addEventToUser', Meteor.userId(),result)
+            Meteor.call('addEventToOwner', Meteor.userId(),result)
         });
         console.log('insert noted')
 
