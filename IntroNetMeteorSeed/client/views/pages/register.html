@@ -1,9 +1,9 @@
 <template name="registerUser">
     <div class="middle-box text-center loginscreen animated fadeInDown">
         <div>
-            <h1 class="logo-name">IntroNet</h1>
+            <h1 class="logo-name">IN</h1>
         </div>
-        <h3>Register to IntroNET</h3>
+        <h3>Register to IntroNet</h3>
         {{#if currentUser}}
             Congrats you logged in {{currentUser.profile.name}}
         {{/if}}
@@ -22,10 +22,6 @@
             <div class="form-group">
                 <input type="password" class="form-control" placeholder="Password" name = "userPassword">
             </div>
-            <div class="form-group">
-                <div class="checkbox i-checks"><label> <input type="checkbox"><i></i> Agree the terms and policy
-                </label></div>
-            </div>
             <button type="submit" class="btn btn-primary block full-width m-b">Register</button>
 
             <p class="text-muted text-center">
@@ -33,8 +29,5 @@
             </p>
             <a class="btn btn-sm btn-white btn-block" href="{{pathFor route='login'}}">Login</a>
         </form>
-        <p class="m-t">
-            <small>Inspinia we app framework base on Bootstrap 3 &copy; 2014</small>
-        </p>
     </div>
 </template>
