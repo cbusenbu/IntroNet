@@ -8,30 +8,44 @@
             <!-- End offCanvas menu toggle -->
 
             <ul class="nav" id="side-menu">
-                <li class="nav-header">
-                    <div class="dropdown profile-element">
-                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                            <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold">{{currentUser.username}}</strong>
-                             </span> <span class="text-muted text-xs block">user <b class="caret"></b></span> </span> </a>
-                        <ul class="dropdown-menu animated fadeIn m-t-xs">
-                            <li><a href="{{pathFor route='userProfile'}}">Profile</a></li>
-                        </ul>
-                    </div>
-                    <div class="logo-element">
-                        IntroNet
-                    </div>
-                </li>
-                <li class="{{isActiveRoute regex='newEvent'}}">
-                    <a href="{{pathFor route='newEvent'}}"><i class="fa fa-plus"></i> <span class="nav-label">Create Event</span> </a>
-                </li>
-                <li class="{{isActiveRoute regex='eventsOwned'}}">
-                    <a href="{{pathFor route='eventsOwned'}}"><i class="fa fa-home"></i> <span class="nav-label">Events Owned</span> </a>
-                </li>
-                <li class="{{isActiveRoute regex='eventsAttending'}}">
-                    <a href="{{pathFor route='eventsAttending'}}"><i class="fa fa-automobile"></i> <span class="nav-label">Events Attending</span> </a>
-                </li>
+                {{#if currentUser}}
+                    <li class="nav-header">
+                        <div class="dropdown profile-element">
+                            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                                <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold">{{currentUser.username}}</strong>
+                                 </span> <span class="text-muted text-xs block">user <b class="caret"></b></span> </span> </a>
+                            <ul class="dropdown-menu animated fadeIn m-t-xs">
+                                <li><a href="{{pathFor route='userProfile'}}">Profile</a></li>
+                            </ul>
+                        </div>
+                        <div class="logo-element">
+                            IntroNet
+                        </div>
+                    </li>
+                    <li class="{{isActiveRoute regex='newEvent'}}">
+                        <a href="{{pathFor route='newEvent'}}"><i class="fa fa-plus"></i> <span class="nav-label">Create Event</span> </a>
+                    </li>
+                    <li class="{{isActiveRoute regex='eventsOwned'}}">
+                        <a href="{{pathFor route='eventsOwned'}}"><i class="fa fa-home"></i> <span class="nav-label">Events Owned</span> </a>
+                    </li>
+                    <li class="{{isActiveRoute regex='eventsAttending'}}">
+                        <a href="{{pathFor route='eventsAttending'}}"><i class="fa fa-automobile"></i> <span class="nav-label">Events Attending</span> </a>
+                    </li>
+                {{else}}
+                    <li class="nav-header">
+                        <div>
+                            <span class="clear">
+                                <span class="block m-t-xs">
+                                    <strong class="font-bold text-white">You must log in to see content!</strong>
+                                </span>
+                            </span>
+                        </div>
+                        <div class="logo-element">
+                            IntroNet
+                        </div>
+                    </li>
+                {{/if}}
             </ul>
-
         </div>
     </nav>
 </template>
