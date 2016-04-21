@@ -25,15 +25,22 @@
                     <li class="{{isActiveRoute regex='newEvent'}}">
                         <a href="{{pathFor route='newEvent'}}"><i class="fa fa-plus"></i> <span class="nav-label">Create Event</span> </a>
                     </li>
+
                     <li class="{{isActiveRoute regex='pageOne'}}">
                         <a href="{{pathFor route='pageOne'}}"><i class="fa fa-calendar"></i> <span class="nav-label">Join Event</span> </a>
                     </li>
-                    <li class="{{isActiveRoute regex='eventsOwned'}}">
-                        <a href="{{pathFor route='eventsOwned'}}"><i class="fa fa-home"></i> <span class="nav-label">Events Owned</span> </a>
-                    </li>
-                    <li class="{{isActiveRoute regex='eventsAttending'}}">
-                        <a href="{{pathFor route='eventsAttending'}}"><i class="fa fa-automobile"></i> <span class="nav-label">Events Attending</span> </a>
-                    </li>
+
+                    {{#if currentUser.profile.eventsOwned}}
+                        <li class="{{isActiveRoute regex='eventsOwned'}}">
+                            <a href="{{pathFor route='eventsOwned'}}"><i class="fa fa-home"></i> <span class="nav-label">Events Owned</span> </a>
+                        </li>
+                    {{/if}}
+                    {{#if currentUser.profile.eventsAttending}}
+                        <li class="{{isActiveRoute regex='eventsAttending'}}">
+                            <a href="{{pathFor route='eventsAttending'}}"><i class="fa fa-automobile"></i> <span class="nav-label">Events Attending</span> </a>
+                        </li>
+                    {{/if}}
+
                 {{else}}
                     <li class="nav-header">
                         <div>
