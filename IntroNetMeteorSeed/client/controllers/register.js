@@ -12,6 +12,7 @@ Template.registerUser.events({
                 profile: {
                     actualName: template.find("[name = 'Name']").value
                 }
+                
         };
 
         Meteor.call('userCreate',user);
