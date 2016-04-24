@@ -4,7 +4,6 @@
 if(Meteor.isServer){
     Meteor.methods({
         'updateFromUserProfile': function(userUpdate) {
-            console.log("user update reached");
             if (userUpdate.actualName != "") {
                 Meteor.users.update(Meteor.userId(), {$set: {"profile.name": userUpdate.actualName}});
             }
