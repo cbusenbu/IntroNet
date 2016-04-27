@@ -34,7 +34,18 @@ Router.route('/userProfile', function (){
 });
 
 Router.route('/eventsOwned', function (){
-    this.render('eventsOwned');
+    this.render('eventsOwned',{
+        data: function(){
+            Meteor.call('getEventsByOwner', Meteor.userId(),function(error,result){
+                if(error){
+                    alert(error)
+                }
+                else{
+                    Session.set('eventsOwned',result);
+                }
+            })
+        }
+    });
 });
 
 Router.route('/eventsAttending', function (){

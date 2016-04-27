@@ -32,6 +32,13 @@ if(Meteor.isServer){
             Events.update(eventID, changes);
         },
 
+        'getEventsByOwner': function(ownerID){
+            var eventsOwned = Events.find({creatorID: ownerID}).fetch();
+            return eventsOwned;
+
+
+        },
+
         'getEventById': function(eventID){
 
             var eventToReturn = Events.findOne({_id: eventID});

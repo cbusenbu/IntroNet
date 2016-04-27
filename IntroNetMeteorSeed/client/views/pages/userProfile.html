@@ -25,7 +25,7 @@
                         </div>
                         <div class="form-group">
                             <label><h3>Biography</h3></label>
-                            <textarea class="form-control" name="biography" rows="6"></textarea>
+                            <textarea class="form-control" name="biography" rows="6">{{#if currentUser}}{{currentUser.profile.biography}}{{/if}}</textarea>
                         </div>
                         <div class="form-group">
                             <label><h3>Ice-breakers (e.g. "Ask me about chess," etc.)</h3></label>
