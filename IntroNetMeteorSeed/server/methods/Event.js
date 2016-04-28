@@ -6,7 +6,7 @@ if(Meteor.isServer){
     Meteor.methods({
         'insertEvent': function(event){
             
-            return Events.insert({
+            var tempId =  Events.insert({
                 creatorID: event.creatorID,
                 createdAt: event.createdAt,
                 oneToOne:event.oneToOne,
@@ -21,6 +21,17 @@ if(Meteor.isServer){
                 attendees:[],
                 preference:[]
             });
+
+            var eventDetailsURL ="eventDetails/"+tempId;
+            var eventAttendeesURL = "manageAttendees/"+tempId;
+            var schedulesURL = "eventSchedules/"+tempId;
+            var eventTimerURL = "stopWatch/"+tempId;
+            Events.update({_id:tempId}, {$addToSet: {"eventDetailsURL": eventDetailsURL}});
+            Events.update({_id:tempId},{$addToSet: {"eventAttendeesURL": eventAttendeesURL}});
+            Events.update({_id: tempId}, {$addToSet: {"schedulesURL": schedulesURL}});
+            Events.update({_id: tempId}, {$addToSet: {"eventTimerURL": eventTimerURL}});
+            
+            return tempId;
             
 
         },

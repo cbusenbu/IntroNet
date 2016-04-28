@@ -3,7 +3,8 @@
  */
 ApplicationController= RouteController.extend({
     layoutTemplate: 'mainLayout',
-    notFoundTemplate: 'notFound'
+    notFoundTemplate: 'notFound',
+    loadingTemplate: 'loading'
 
 });
 
@@ -33,19 +34,21 @@ Router.route('/userProfile', function (){
     this.render('userProfile');
 });
 
-Router.route('/eventsOwned', function (){
-    this.render('eventsOwned',{
-        data: function(){
-            Meteor.call('getEventsByOwner', Meteor.userId(),function(error,result){
-                if(error){
-                    alert(error)
-                }
-                else{
-                    Session.set('eventsOwned',result);
-                }
-            })
+
+Router.route( 'eventsOwned', {
+    path: '/eventsOwned',
+    template: 'eventsOwned',
+    subscriptions: function() {
+        return Meteor.subscribe('eventsByOwner');
+    },
+
+    action:function(){
+        if(this.ready()){
+            this.render();
+        }else{
+            this.render('loading');
         }
-    });
+    }
 });
 
 Router.route('/eventsAttending', function (){
