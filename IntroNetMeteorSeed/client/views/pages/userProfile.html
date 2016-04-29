@@ -19,9 +19,9 @@
             <div class="ibox float-e-margins">
                 <div class="ibox-content">
                     <form class="m-t" role="form" action="#" id = "updateProfile">
+                        <label><h3>Name</h3></label>
                         <div class="form-group">
-                            <label><h3>Current Name: {{#if currentUser}}{{currentUser.profile.name}}{{/if}} </h3></label>
-                            <input type="text" class="form-control" name="name">
+                            <input type="text" class="form-control" name="name" value="{{#if currentUser}}{{currentUser.profile.name}}{{/if}}">
                         </div>
                         <div class="form-group">
                             <label><h3>Biography</h3></label>
@@ -29,8 +29,9 @@
                         </div>
                         <div class="form-group">
                             <label><h3>Ice-breakers (e.g. "Ask me about chess," etc.)</h3></label>
-                            <input type="text" class="form-control" name="iceBreakers" >
+                            <input type="text" class="form-control" name="iceBreakers" value="{{#if currentUser}}{{currentUser.profile.iceBreakers}}{{/if}}">
                         </div>
+                        <!--
                         <div class="form-group">
                             <label><h3>Would you like to receive email reminders about your events?</h3></label>
                             <br/>
@@ -42,6 +43,7 @@
                                 </label>
                             </div>
                         </div>
+                        -->
                         <button type="submit" class="btn btn-primary block m-b">Make Changes</button>
                     </form>
                 </div>

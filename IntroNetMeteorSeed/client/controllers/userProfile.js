@@ -15,8 +15,5 @@ Template.userProfile.events({
         console.log("after update call");
 
 
-
-
-
     }
 })
