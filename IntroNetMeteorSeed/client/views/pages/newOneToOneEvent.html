@@ -75,24 +75,21 @@
                     <table>
                         <tr>
                             <td><label>Number of Sessions:</label></td>
-                            <td><input type="number" min="0" id="sessionCount" value="1"></td>
+                            <td><input type="number" min="0" id="sessionCount" name="sessionCount" value="1"></td>
+                            <td><button class="btn btn-white" type="button" id="setSessionCount">Set Session Count</button></td>
                         </tr>
                     </table>
                     (for breaking events into multiple days, etc.)
                     <br><br><br>
-
-                    <table id="sessionPicker" border="1">
-                        <tr>
-                            <th>Session Number:</th>
-                            <th>Session Start:</th>
-                            <th>Number of Activities:</th>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td><input type="date" id="sess1Start"></td>
-                            <td><input type="number" min="0" id="sess1Count"></td>
-                        </tr>
-                    </table>
+                    <div id="sessionTable">
+                        <table id="sessionPicker" border="1">
+                            <tr>
+                                <th>Session Number:</th>
+                                <th>Session Start:</th>
+                                <th>Number of Activities:</th>
+                            </tr>
+                        </table>
+                    </div>
                     <br><br>
 
                     <h3>Preference Settings</h3><br>
