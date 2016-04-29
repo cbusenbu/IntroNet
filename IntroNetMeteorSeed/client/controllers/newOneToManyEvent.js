@@ -2,6 +2,21 @@
  * Created by Chas on 4/6/16.
  */
 Template.newOneToManyEvent.events({
+    'click #setSessionCount': function(event){
+        event.preventDefault();
+        var sessionCount = document.getElementById('sessionCount').value;
+        //console.log(sessionCount + " Sessions noted.");
+        let innerHTMLString = "<tr><th>Session Number:</th><th>Session Start:</th><th>Number of Activities:</th></tr>"
+        for(i = 1; i <= sessionCount; i++){
+            innerHTMLString += "<tr>";
+            innerHTMLString += "<td>" + i + "</td>";
+            innerHTMLString += '<td><input type="date" id="sess' +i + 'Start"></td></td>';
+            innerHTMLString += '<td><input type="number" min="0" id="sess'+i+'Count"></td>';
+            innerHTMLString += "</tr>";
+        }
+        document.getElementById('sessionPicker').innerHTML = innerHTMLString;
+    },
+    
     'click #calcThirdParam': function(event){
         event.preventDefault();
         var activityCount = document.getElementById('actvtyCount').value;

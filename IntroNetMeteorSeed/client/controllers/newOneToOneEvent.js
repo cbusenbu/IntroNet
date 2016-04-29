@@ -1,6 +1,8 @@
 /**
  * Created by Chas on 4/8/16.
  */
+
+
 Template.newOneToOneEvent.events({
     'click #setSessionCount': function(event){
         event.preventDefault();
