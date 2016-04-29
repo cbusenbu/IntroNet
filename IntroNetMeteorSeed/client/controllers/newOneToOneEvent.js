@@ -7,6 +7,28 @@ function isValidForm(){
 };
 
 Template.newOneToOneEvent.events({
+    'click #addPreference': function(event){
+        event.preventDefault();
+        console.log("preference button-click registered");
+        let name = document.getElementById("newPrefName").value;
+        let options = document.getElementById("newPrefOptions").value;
+        let type = "";
+        if (document.getElementById('likeMe').checked)
+            type = "(Un)Like Me";
+        else
+            type = "Detailed";
+        let tableText = document.getElementById('preferenceList').innerHTML;
+        tableText += "<tr>";
+        tableText += "<td>" + name + "</td>";
+        tableText += "<td>" + options + "</td>";
+        tableText += "<td>" + type + "</td>";
+        tableText += "</tr>";
+        document.getElementById('preferenceList').innerHTML =tableText;
+        document.getElementById("newPrefName").value = "";
+        document.getElementById("newPrefOptions").value = "";
+        $('#modal-form').modal('hide');
+    },
+
     'click #setSessionCount': function(event){
         event.preventDefault();
         var sessionCount = document.getElementById('sessionCount').value;

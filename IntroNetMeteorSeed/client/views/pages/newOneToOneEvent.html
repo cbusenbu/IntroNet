@@ -98,6 +98,7 @@
                         <tr>
                             <th>Preference</th>
                             <th>Values</th>
+                            <th>Type</th>
                         </tr>
                     </table>
                     <br>
@@ -118,14 +119,14 @@
                                                 <label>Preference Name</label>
                                                 <input type="text" class="form-control" id="newPrefName"></div>
                                             <div class="form-group">
-                                                <label>Preference Options (one per line)</label>
+                                                <label>Preference Options (comma seperated)</label>
                                                 <textarea rows="5" class="form-control" id="newPrefOptions"></textarea>
                                             </div>
                                                 <label>User Selection Choice:</label><br>
-                                                <input type="radio" name="selectionType" value="likeMe" checked> "Like me" (e.g.: I am a scientist who would like to meet others in my field)<br>
-                                                <input type="radio" name="selectionType" value="detailedSelect"> Detailed (e.g. I want to meet faculty and industry professionals, but not students, etc.)<br><br><br>
+                                                <input type="radio" name="selectionType" id = "likeMe" value="likeMe" checked> "Like me" (e.g.: I am a scientist who would like to meet others in my field)<br>
+                                                <input type="radio" name="selectionType" id = "detailedSelect" value="detailedSelect"> Detailed (e.g. I want to meet faculty and industry professionals, but not students, etc.)<br><br><br>
                                             <div>
-                                                <button class="btn btn-sm btn-primary pull-right m-t-n-xs" type="button"><strong>Add Preference</strong></button>
+                                                <button class="btn btn-sm btn-primary pull-right m-t-n-xs" type="button" id="addPreference"><strong>Add Preference</strong></button>
                                             </div>
                                         </div>
                                     </div>
