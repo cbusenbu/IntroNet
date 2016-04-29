@@ -17,9 +17,7 @@ Template.registerUser.events({
 
         Meteor.call('userCreate',user);
         Meteor.loginWithPassword(user.email,user.password);
-        if (Meteor.user()){
-            Router.go('home')
-        };
+        Router.go('home');
         console.log("You made it to after createNewUser")
 
     }
