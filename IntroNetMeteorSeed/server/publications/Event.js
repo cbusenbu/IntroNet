@@ -11,5 +11,15 @@ if(Meteor.isServer){
         }
 
         return this.ready();
+    });
+
+    Meteor.publish('eventById', function(event_id){
+        eventSpecific = Events.findOne({_id: event_id});
+        console.log(eventSpecific);
+
+        if(eventSpecific){
+            return eventSpecific
+        }
+        return this.ready();
     })
 }

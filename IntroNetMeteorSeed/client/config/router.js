@@ -76,18 +76,18 @@ Router.route('eventRegistration/:_id', function(){
 });
 
 */
-Router.route('/eventRegistrationOne/:_id', function (){
-    this.render('eventRegistrationOne',{
-        data: function(){
-            Meteor.call('getEventById',this.params._id,function(error,result){
-                if(error){
-                    alert('Error');
-                }else{
-                    Session.set('currentEventRegistration',result);
-                }
-            });
+Router.route('/eventRegistrationOne/:_id',{
+    subscriptions: function() {
+        return Meteor.subscribe('eventById',this.params._id);
+    },
+    action:function(){
+        console.log('got here');
+        if(this.ready()){
+            this.render('eventRegistrationOne');
+        }else{
+            this.render('loading');
         }
-    });
+    }
 
 });
 
