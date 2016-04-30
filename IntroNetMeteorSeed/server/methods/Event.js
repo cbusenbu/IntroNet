@@ -41,6 +41,10 @@ if(Meteor.isServer){
             Events.update(eventID, changes);
         },
 
+        'removeEvent': function(eventID){
+            Events.remove({_id: eventID});
+        },
+
         'isOwner': function(eventID){
             var event = Events.findOne({_id:eventID});
             return (event.creatorId == Meteor.userID());
