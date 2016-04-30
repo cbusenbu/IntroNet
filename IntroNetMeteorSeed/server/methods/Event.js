@@ -27,14 +27,16 @@ if(Meteor.isServer){
             
 
         },
-        'addEventToOwner': function(userID,eventID){
-            Meteor.users.update({_id: userID}, {$addToSet: { "eventsOwned" : eventID}});
+        'addEventToOwner': function(eventID){
+            Meteor.users.update({_id: Meteor.userId()}, {$addToSet: { "eventsOwned" : eventID}});
         },
 
-        'addEventToAttendee': function(userID,eventID){
-            Meteor.users.update({_id: userID}, {$addToSet: { "eventsAttending": eventID}});
+        'addEventToAttendee': function( eventID){
+            Meteor.users.update({_id: Meteor.userId()}, {$addToSet: { "eventsAttending": eventID}});
         },
-
+        'addAttendeeToEvent': function(eventID){
+            Events.update({_id: eventID}, {$addToSet:{"attendees": Meteor.userId()}});
+        },
         'modifyEvent': function(eventID, changes){
             Events.update(eventID, changes);
         },
