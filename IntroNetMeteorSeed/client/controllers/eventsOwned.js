@@ -4,6 +4,10 @@
 Template.eventsOwned.helpers({
     eventsOfOwner: function(){
         return Events.find();
+    },
+
+    goToEventDetails: function(eventId){
+        
     }
 
 });

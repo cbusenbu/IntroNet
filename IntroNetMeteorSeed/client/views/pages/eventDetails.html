@@ -26,16 +26,16 @@
             </div>
         </div>
 
-
+        {{#each event in eventObject}}
         <div class="col-lg-8">
             <div class="ibox">
                 <div class="ibox-title"><h3>Basic Event Information</h3></div>
                 <div class="ibox-content">
                     <div class="row">
                         <div class="col-lg-6">
-                            <b>Event Name: </b><label id="eventName">{{showEventName}}</label><br>
-                            <b>Event Location: </b><label id="eventLocation">{{showLocation}}</label><br>
-                            <b>Event Dates: </b><label id="eventStart">{{showStartDate}}</label> to <label id="eventEnd">{{showEndDate}}</label><br>
+                            <b>Event Name: </b><label id="eventName">{{event.name}}</label><br>
+                            <b>Event Location: </b><label id="eventLocation">{{event.location}}</label><br>
+                            <b>Event Dates: </b><label id="eventStart">{{event.startDate}}</label> to <label id="eventEnd">{{showEndDate}}</label><br>
                             <br>
                             <b>Event Signup URL: </b><label id="eventURL">{{showURL}}</label><br>
                         </div>
@@ -90,5 +90,6 @@
                 <button class="btn btn-sm btn-primary pull-left m-t-n-xs" id="deleteEvent" type="submit"><strong>Delete Event</strong></button>
             </div>
         </div>
+        {{/each}}
     </div>
 </template>

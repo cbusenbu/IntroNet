@@ -29,39 +29,20 @@
                             <th>Start</th>
                             <th>Location</th>
                         </tr>
-                        {{#each eventsOfOwner}}
+                        {{#each event in eventsOfOwner}}
                         <tr>
 
-                            <td><b>{{name}}</b></td>
-                            <td>{{startDate}}</td>
-                            <td>{{location}}</td>
-                            <td><a class="btn" type="button" href ="{{pathFor route='eventDetails'}}">Event Details</a></td>
-                            <td><a class="btn" type="button" href ="{{pathFor route='manageAttendees'}}">Attendees</a></td>
-                            <td><a class="btn" type="button" href ="{{pathFor route='pageOne'}}">Schedules</a></td>
-                            <td><a class="btn" type="button" href ="{{pathFor route='stopWatch'}}">Event Timer</a></td>
+                            <td><b>{{event.name}}</b></td>
+                            <td>{{event.startDate}}</td>
+                            <td>{{event.location}}</td>
+                            <td><a class="btn" type="button" href ="eventDetails/{{event._id}}">Event Details</a></td>
+                            <td><a class="btn" type="button" href ="manageAttendees/{{event._id}}">Attendees</a></td>
+                            <td><a class="btn" type="button" href ="pageOne/{{event._id}}">Schedules</a></td>
+                            <td><a class="btn" type="button" href ="stopWatch/{{event._id}}">Event Timer</a></td>
 
                         </tr>
                         {{/each}}
-                        <!--
-                        <tr>
-                            <td><b>(Event Name)</b></td>
-                            <td>(Start Date)</td>
-                            <td>(Location)</td>
-                            <td><a class="btn" type="button" href ="{{pathFor route='eventDetails'}}">Event Details</a></td>
-                            <td><a class="btn" type="button" href ="{{pathFor route='manageAttendees'}}">Attendees</a></td>
-                            <td><a class="btn" type="button" href ="{{pathFor route='pageOne'}}">Schedules</a></td>
-                            <td><a class="btn" type="button" href ="{{pathFor route='stopWatch'}}">Event Timer</a></td>
-                        </tr>
-                        <tr>
-                            <td><b>(Event Name)</b></td>
-                            <td>(Start Date)</td>
-                            <td>(Location)</td>
-                            <td><a class="btn" type="button" href ="{{pathFor route='eventDetails'}}">Event Details</a></td>
-                            <td><a class="btn" type="button" href ="{{pathFor route='manageAttendees'}}">Attendees</a></td>
-                            <td><a class="btn" type="button" href ="{{pathFor route='pageOne'}}">Schedules</a></td>
-                            <td><a class="btn" type="button" href ="{{pathFor route='stopWatch'}}">Event Timer</a></td>
-                        </tr>
-                        -->
+
                     </table>
                 </div>
             </div>

@@ -76,34 +76,31 @@ Router.route('eventRegistration/:_id', function(){
 });
 
 */
-Router.route('/eventRegistrationOne/:_id', function (){
-    this.render('eventRegistrationOne',{
-        data: function(){
-            Meteor.call('getEventById',this.params._id,function(error,result){
-                if(error){
-                    alert('Error');
-                }else{
-                    Session.set('currentEventRegistration',result);
-                }
-            });
+Router.route('/eventRegistrationOne/:_id',{
+    subscriptions: function() {
+        return Meteor.subscribe('eventById',this.params._id);
+    },
+    action:function(){
+        if(this.ready()){
+            this.render('eventRegistrationOne');
+        }else{
+            this.render('loading');
         }
-    });
+    }
 
 });
 
-Router.route('/eventRegistrationMany/:_id', function (){
-    this.render('eventRegistrationMany',{
-        data: function(){
-            Meteor.call('getEventById',this.params._id,function(error,result){
-                if(error){
-                    alert('Error');
-                }else{
-                    console.log(result);
-                    Session.set('currentEventRegistration',result);
-                }
-            });
+Router.route('/eventRegistrationMany/:_id',{
+    subscriptions: function() {
+        return Meteor.subscribe('eventById',this.params._id);
+    },
+    action:function(){
+        if(this.ready()){
+            this.render('eventRegistrationOne');
+        }else{
+            this.render('loading');
         }
-    });
+    }
 });
 
 Router.route('/newEvent', function (){
@@ -126,6 +123,17 @@ Router.route('/viewEventAttendees', function(){
     this.render('viewEventAttendees')
 });
 
-Router.route('/eventDetails', function(){
-    this.render('eventDetails')
+Router.route('/eventDetails/:_id',{
+    subscriptions: function(){
+        return Meteor.subscribe('eventById',this.params._id);
+    },
+    action: function(){
+        if(this.ready()){
+            this.render('eventDetails');
+        }else{
+            this.render('loading');
+        }
+
+    }
+
 });
