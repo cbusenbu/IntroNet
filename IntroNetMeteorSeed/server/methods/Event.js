@@ -22,39 +22,23 @@ if(Meteor.isServer){
                 preference:[]
             });
 
-            var eventDetailsURL ="eventDetails/"+tempId;
-            var eventAttendeesURL = "manageAttendees/"+tempId;
-            var schedulesURL = "eventSchedules/"+tempId;
-            var eventTimerURL = "stopWatch/"+tempId;
-            Events.update({_id:tempId}, {$addToSet: {"eventDetailsURL": eventDetailsURL}});
-            Events.update({_id:tempId},{$addToSet: {"eventAttendeesURL": eventAttendeesURL}});
-            Events.update({_id: tempId}, {$addToSet: {"schedulesURL": schedulesURL}});
-            Events.update({_id: tempId}, {$addToSet: {"eventTimerURL": eventTimerURL}});
             
             return tempId;
             
 
         },
         'addEventToOwner': function(userID,eventID){
-            Meteor.users.update({_id: userID}, {$addToSet: { "profile.eventsOwned" : eventID}});
+            Meteor.users.update({_id: userID}, {$addToSet: { "eventsOwned" : eventID}});
+        },
+
+        'addEventToAttendee': function(userID,eventID){
+            Meteor.users.update({_id: userID}, {$addToSet: { "eventsAttending": eventID}});
         },
 
         'modifyEvent': function(eventID, changes){
             Events.update(eventID, changes);
         },
 
-        'getEventsByOwner': function(ownerID){
-            var eventsOwned = Events.find({creatorID: ownerID}).fetch();
-            return eventsOwned;
-
-
-        },
-
-        'getEventById': function(eventID){
-
-            var eventToReturn = Events.findOne({_id: eventID});
-            return eventToReturn;
-        },
         'isOwner': function(eventID){
             var event = Events.findOne({_id:eventID});
             return (event.creatorId == Meteor.userID());
