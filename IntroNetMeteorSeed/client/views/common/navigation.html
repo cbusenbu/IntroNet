@@ -26,8 +26,8 @@
                         <a href="{{pathFor route='newEvent'}}"><i class="fa fa-plus"></i> <span class="nav-label">Create Event</span> </a>
                     </li>
 
-                    <li class="{{isActiveRoute regex='pageOne'}}">
-                        <a href="{{pathFor route='pageOne'}}"><i class="fa fa-calendar"></i> <span class="nav-label">Join Event</span> </a>
+                    <li class="{{isActiveRoute regex='joinEvent'}}">
+                        <a href="{{pathFor route='joinEvent'}}"><i class="fa fa-calendar"></i> <span class="nav-label">Join Event</span> </a>
                     </li>
 
                     {{#if currentUser.profile.eventsOwned}}
