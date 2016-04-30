@@ -17,6 +17,11 @@ Router.route('/pageOne', function () {
     this.render('pageOne');
 });
 
+Router.route('/joinEvent', function () {
+    this.render('joinEvent')
+});
+
+
 Router.route('/login', function (){
     this.render('loginUserTemplate');
     this.layout('blankLayout');
