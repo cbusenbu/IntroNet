@@ -70,6 +70,20 @@ if(Meteor.isServer){
                 }
             }
             return false;
+        },
+        
+        'eventTypeCheck': function(eventID){
+            var event= Events.findOne({_id:eventID});
+            
+            if (event.oneToOne == true){
+                return 1;
+            }
+            else if(event.oneToMany ==true){
+                return 2;
+            }
+            else{
+                return 0;
+            }
         }
     })
 }

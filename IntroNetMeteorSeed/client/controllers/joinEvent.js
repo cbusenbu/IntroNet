@@ -3,9 +3,20 @@
  */
 Template.joinEvent.events({
 
-    'click #setSessionCount': function (event) {
+    'click #joinEv': function (event) {
         event.preventDefault();
         let id = document.getElementById("eventID").value;
-        console.log("Attempting to Join Event " + id);
+
+        Meteor.call('eventTypeCheck', id, function(error,result){
+            if(result == 1){
+                Router.go('/eventRegistrationOne/'+id);
+            }
+            else if( result == 2){
+                Router.go('/eventRegistrationMany/'+id);
+            }
+            else{
+                document.getElementById("eventID").value = "";
+            }
+        })
     },
 });
