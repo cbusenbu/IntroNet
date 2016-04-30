@@ -1,8 +1,19 @@
 /**
- * Created by Chas on 4/24/16.
+ * Created by Chas on 4/30/16.
  */
 if(Meteor.isServer){
     Meteor.methods({
+        'userCreate': function(user){
+            Accounts.createUser({
+                username: user.username,
+                email:user.email,
+                password:user.password,
+                profile:{
+                    name:user.profile.actualName,
+                }
+            });
+        },
+
         'updateFromUserProfile': function(userUpdate) {
             if (userUpdate.actualName != "") {
                 Meteor.users.update(Meteor.userId(), {$set: {"profile.name": userUpdate.actualName}});
@@ -13,7 +24,16 @@ if(Meteor.isServer){
             if (userUpdate.iceBreakers != "") {
                 Meteor.users.update(Meteor.userId(), {$set: {"profile.iceBreakers": userUpdate.iceBreakers}});
             }
-        }
+        },
 
-    })
+        'userHasEvents': function(){
+            var userObject = Meteor.user();
+            if (userObject.eventsOwned){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+    });
 }

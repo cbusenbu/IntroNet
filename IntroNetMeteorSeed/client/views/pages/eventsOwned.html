@@ -40,7 +40,7 @@
                             <td><a class="btn" type="button" href ="manageAttendees/{{event._id}}">Attendees</a></td>
                             <td><a class="btn" type="button" href ="pageOne/{{event._id}}">Schedules</a></td>
                             <td><a class="btn" type="button" href ="stopWatch/{{event._id}}">Event Timer</a></td>
-                            <td><a class="btn btn-sm btn-primary" type="button" onclick="{{event._id}})">Delete</a></td>
+                            {{> deleteButton id = event._id}}
                         </tr>
                         {{/each}}
 
@@ -50,4 +50,8 @@
         </div>
     </div>
     {{/if}}
+</template>
+
+<template name = "deleteButton">
+    <td><a class="btn btn-sm btn-primary" type="button" id = "delete" >Delete </a></td>
 </template>

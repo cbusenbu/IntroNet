@@ -30,12 +30,12 @@
                         <a href="{{pathFor route='joinEvent'}}"><i class="fa fa-calendar"></i> <span class="nav-label">Join Event</span> </a>
                     </li>
 
-                    {{#if currentUser.profile.eventsOwned}}
+                    {{#if hasEvents}}
                         <li class="{{isActiveRoute regex='eventsOwned'}}">
                             <a href="{{pathFor route='eventsOwned'}}"><i class="fa fa-home"></i> <span class="nav-label">Events Owned</span> </a>
                         </li>
                     {{/if}}
-                    {{#if currentUser.profile.eventsAttending}}
+                    {{#if currentUser.eventsAttending}}
                         <li class="{{isActiveRoute regex='eventsAttending'}}">
                             <a href="{{pathFor route='eventsAttending'}}"><i class="fa fa-automobile"></i> <span class="nav-label">Events Attending</span> </a>
                         </li>

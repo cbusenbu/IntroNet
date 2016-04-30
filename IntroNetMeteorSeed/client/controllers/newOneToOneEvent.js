@@ -102,7 +102,7 @@ Template.newOneToOneEvent.events({
             };
 
             Meteor.call('insertEvent', eventObject, function (error, result) {
-                Meteor.call('addEventToOwner', Meteor.userId(), result)
+                Meteor.call('addEventToOwner', result)
             });
             console.log('insert noted')
         }

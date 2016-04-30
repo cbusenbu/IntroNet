@@ -13,6 +13,14 @@ Template.eventsOwned.helpers({
     }
 
 });
+Template.eventsOwned.events({
+
+    'click #delete' : function(event,template){
+        console.log("we got there");
+        console.log(this._id);
+        Meteor.call('removeEvent',this.id);
+    }
+})
 
 
 
