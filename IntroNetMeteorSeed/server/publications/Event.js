@@ -24,7 +24,7 @@ if(Meteor.isServer){
     });
 
     Meteor.publish('eventAttendees', function(event_id){
-
+      usersAttending = Meteor.users.find({});
     });
     
 }
