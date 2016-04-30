@@ -42,6 +42,16 @@ if(Meteor.isServer){
         },
 
         'removeEvent': function(eventID){
+
+            var currentEvent = Events.findOne({_id:eventID});
+            var creator = currentEvent.creatorID;
+            var eventAttendees = currentEvent.attendees
+
+            Meteor.users.update({_id:creator}, {$pull: {eventsOwned : eventID}});
+
+            for( attendee in eventAttendees){
+                Meteor.users.update({_id:attendee}, {$pull: {eventsAttending:eventID}})
+            };
             Events.remove({_id: eventID});
         },
 
