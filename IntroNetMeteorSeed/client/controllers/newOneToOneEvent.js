@@ -104,7 +104,9 @@ Template.newOneToOneEvent.events({
             Meteor.call('insertEvent', eventObject, function (error, result) {
                 Meteor.call('addEventToOwner', result)
             });
-            console.log('insert noted')
+
+            console.log('insert noted');
+            Router.go('/eventsOwned');
         }
 
     }

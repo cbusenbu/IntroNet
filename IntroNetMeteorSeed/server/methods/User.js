@@ -28,7 +28,7 @@ if(Meteor.isServer){
 
         'userHasEvents': function(){
             var userObject = Meteor.user();
-            if (userObject.eventsOwned){
+            if (userObject.eventsOwned  && (userObject.eventsOwned.length != 0)){
                 return true;
             }
             else{
