@@ -81,7 +81,6 @@ Router.route('/eventRegistrationOne/:_id',{
         return Meteor.subscribe('eventById',this.params._id);
     },
     action:function(){
-        console.log('got here');
         if(this.ready()){
             this.render('eventRegistrationOne');
         }else{
@@ -91,19 +90,17 @@ Router.route('/eventRegistrationOne/:_id',{
 
 });
 
-Router.route('/eventRegistrationMany/:_id', function (){
-    this.render('eventRegistrationMany',{
-        data: function(){
-            Meteor.call('getEventById',this.params._id,function(error,result){
-                if(error){
-                    alert('Error');
-                }else{
-                    console.log(result);
-                    Session.set('currentEventRegistration',result);
-                }
-            });
+Router.route('/eventRegistrationMany/:_id',{
+    subscriptions: function() {
+        return Meteor.subscribe('eventById',this.params._id);
+    },
+    action:function(){
+        if(this.ready()){
+            this.render('eventRegistrationOne');
+        }else{
+            this.render('loading');
         }
-    });
+    }
 });
 
 Router.route('/newEvent', function (){
@@ -126,6 +123,17 @@ Router.route('/viewEventAttendees', function(){
     this.render('viewEventAttendees')
 });
 
-Router.route('/eventDetails', function(){
-    this.render('eventDetails')
+Router.route('/eventDetails/:_id',{
+    subscriptions: function(){
+        return Meteor.subscribe('eventById',this.params._id);
+    },
+    action: function(){
+        if(this.ready()){
+            this.render('eventDetails');
+        }else{
+            this.render('loading');
+        }
+
+    }
+
 });

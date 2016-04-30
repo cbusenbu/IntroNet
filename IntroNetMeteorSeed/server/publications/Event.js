@@ -14,12 +14,17 @@ if(Meteor.isServer){
     });
 
     Meteor.publish('eventById', function(event_id){
-        eventSpecific = Events.findOne({_id: event_id});
-        console.log(eventSpecific);
+        eventSpecific = Events.find({_id: event_id});
+
 
         if(eventSpecific){
-            return eventSpecific
+            return eventSpecific;
         }
         return this.ready();
-    })
+    });
+
+    Meteor.publish('eventAttendees', function(event_id){
+
+    });
+    
 }
