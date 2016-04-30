@@ -13,7 +13,7 @@
 
     <!-- Page heading -->
     {{> pageHeading title='New One-to-One' category='New Event' }}
-
+    {{#if currentUser}}
     <div class="wrapper wrapper-content animated fadeInRight">
         <div class="row">
             <div class="col-lg-8">
@@ -140,4 +140,5 @@
             </div>
         </div>
     </div>
+    {{/if}}
 </template>

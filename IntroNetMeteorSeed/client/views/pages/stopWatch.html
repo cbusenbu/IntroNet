@@ -2,7 +2,7 @@
 <template name="stopWatch">
 
     {{> pageHeading title='Event Timer' category='Events Owned'}}
-
+    {{#if currentUser}}
     <div class="wrapper wrapper-content animated fadeInRight">
         <div class="row">
 
@@ -71,7 +71,7 @@
             </div>
         </div>
     </div>
-
+    {{/if}}
 =======
 </template>
 

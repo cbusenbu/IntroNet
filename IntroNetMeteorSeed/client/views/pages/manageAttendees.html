@@ -2,7 +2,7 @@
 <template name="manageAttendees">
 
     {{> pageHeading title='Manage Attendees' category="Events Owned"}}
-
+    {{#if currentUser}}
     <div class="wrapper wrapper-content animated fadeInRight">
         <div class="row">
             <form>
@@ -64,6 +64,6 @@
             </div>
         </div>
     </div>
-
+    {{/if}}
 </template>
 

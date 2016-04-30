@@ -1,7 +1,7 @@
 <template name="userProfile">
 
     {{> pageHeading title='User Profile' category='User Profile'}}
-
+    {{#if currentUser}}
     <div class="wrapper wrapper-content animated fadeInRight">
 
         <div class="row">
@@ -51,5 +51,6 @@
         </div>
 
     </div>
+    {{/if}}
 </template>
 

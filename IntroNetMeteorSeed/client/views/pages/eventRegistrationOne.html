@@ -13,6 +13,7 @@
     </style>
 
     {{> pageHeading title='Event Sign-Up' }}
+    {{#if currentUser}}
 
     <div class="wrapper wrapper-content animated fadeInRight">
         <div class="row">
@@ -176,4 +177,5 @@
         </form>
         {{/each}}
     </div>
+    {{/if}}
 </template>

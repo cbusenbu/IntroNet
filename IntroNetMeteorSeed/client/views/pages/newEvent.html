@@ -1,9 +1,9 @@
 <template name="newEvent">
 
 
-        <!-- Page heading -->
-        {{> pageHeading title='New Event' }}
-
+    <!-- Page heading -->
+    {{> pageHeading title='New Event' }}
+    {{#if currentUser}}
         <div class="wrapper wrapper-content animated fadeInRight">
             <div class="row">
                 <div class="col-lg-7">
@@ -19,4 +19,5 @@
                 </div>
             </div>
         </div>
+    {{/if}}
     </template>

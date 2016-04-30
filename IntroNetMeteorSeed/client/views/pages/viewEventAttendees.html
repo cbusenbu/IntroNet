@@ -2,7 +2,7 @@
 <template name="viewEventAttendees">
 
     {{> pageHeading title='Event Attendees' category="Events Attending"}}
-
+    {{#if currentUser}}
     <div class="wrapper wrapper-content animated fadeInRight">
         <div class="row">
             <div class="col-lg-8">
@@ -51,6 +51,6 @@
             </div>
         </div>
     </div>
-
+    {{/if}}
 </template>
 

@@ -13,6 +13,7 @@
     </style>
 
     {{> pageHeading title='Event Details' category='Events Owned'}}
+    {{#if currentUser}}
 
     <div class="wrapper wrapper-content animated fadeInRight">
         <div class="row">
@@ -92,4 +93,5 @@
         </div>
         {{/each}}
     </div>
+    {{/if}}
 </template>

@@ -3,7 +3,7 @@
 
     <!-- Page heading -->
     {{> pageHeading title='Join an Event' }}
-
+    {{#if currentUser}}
     <div class="wrapper wrapper-content animated fadeInRight">
         <div class="row">
             <div class="col-lg-5">
@@ -15,4 +15,5 @@
             </div>
         </div>
     </div>
+    {{/if}}
 </template>
