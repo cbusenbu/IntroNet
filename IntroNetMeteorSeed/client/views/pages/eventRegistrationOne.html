@@ -43,7 +43,7 @@
                                 <div class="form-group">
                                     <label class="col-lg-3 control-label">Which Best Describes You?</label>
                                     <div class="col-sm-6">
-                                        <select class="form-control m-b" id="userAttribute_1">
+                                        <select class="form-control m-b" id="userAttribute_{{preference.prefName}}">
                                             {{#each preferenceOption in preference.prefOptions}}
                                             <option>{{preferenceOption}}</option>
                                             {{/each}}
