@@ -126,10 +126,6 @@ Router.route('/newOneToOneEvent', function(){
     this.render('newOneToOneEvent')
 });
 
-Router.route('/pageOne', function () {
-    this.render('pageOne');
-});
-
 Router.route('/register', function(){
     this.render('registerUser');
     this.layout('blankLayout');

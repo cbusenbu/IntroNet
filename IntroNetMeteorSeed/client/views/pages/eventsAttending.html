@@ -30,30 +30,17 @@
                             <th>Start</th>
                             <th>Location</th>
                         </tr>
-                        <tr>
-                            <td><b>(Event Name)</b></td>
-                            <td>(Start Date)</td>
-                            <td>(Location)</td>
-                            <td><a class="btn" type="button" href ="{{pathFor route='viewEventAttendees'}}">Attendees</a></td>
-                            <td><a class="btn" type="button" href ="{{pathFor route='pageOne'}}">Preferences</a></td>
-                            <td><a class="btn" type="button" href ="{{pathFor route='pageOne'}}">Schedule</a></td>
-                        </tr>
-                        <tr>
-                            <td><b>(Event Name)</b></td>
-                            <td>(Start Date)</td>
-                            <td>(Location)</td>
-                            <td><a class="btn" type="button" href ="{{pathFor route='viewEventAttendees'}}">Attendees</a></td>
-                            <td><a class="btn" type="button" href ="{{pathFor route='pageOne'}}">Preferences</a></td>
-                            <td><a class="btn" type="button" href ="{{pathFor route='pageOne'}}">Schedule</a></td>
-                        </tr>
-                        <tr>
-                            <td><b>(Event Name)</b></td>
-                            <td>(Start Date)</td>
-                            <td>(Location)</td>
-                            <td><a class="btn" type="button" href ="{{pathFor route='viewEventAttendees'}}">Attendees</a></td>
-                            <td><a class="btn" type="button" href ="{{pathFor route='pageOne'}}">Preferences</a></td>
-                            <td><a class="btn" type="button" href ="{{pathFor route='pageOne'}}">Schedule</a></td>
-                        </tr>
+
+                        {{#each event in eventsAttending}}
+                            <tr>
+                                <td><b>{{event.name}}</b></td>
+                                <td>{{event.startDate}}</td>
+                                <td>{{event.location}}</td>
+                                <td><a class="btn" type="button" href ="viewEventAttendees/{{event._id}}">Attendees</a></td>
+                                <td><a class="btn" type="button" href ="#">Preferences</a></td>
+                                <td><a class="btn" type="button" href ="mySchedule/{{event._id}}">Schedule</a></td>
+                            </tr>
+                        {{/each}}
                     </table>
                 </div>
             </div>
