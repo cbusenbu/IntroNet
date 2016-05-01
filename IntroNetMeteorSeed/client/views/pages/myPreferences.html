@@ -13,7 +13,6 @@
             width: 80px;
         }
     </style>
-
     {{#if currentUser}}
 
         <form class="form-horizontal">
@@ -32,9 +31,9 @@
                                         <label class="col-lg-3 control-label">Which Best Describes You?</label>
                                         <div class="col-sm-6">
                                             <select class="form-control m-b" id="userAttribute_1">
-                                                <option>Option 1</option>
-                                                <option>Option 2</option>
-                                                <option>Option 3</option>
+                                                <!-- for each option in preference -->
+                                                <option>Option Name</option>
+                                                <!-- end for -->
                                             </select>
                                         </div>
                                         <div class="col-sm-12">
@@ -51,7 +50,7 @@
                                                     <!-- if detailed preference selection -->
                                                         <!-- for each option -->
                                                         <tr>
-                                                            <td>Option #</td>
+                                                            <td>Option Name</td>
                                                             <td><input type="radio" name="pref-#-#" value="dislike"/></td>
                                                             <td><input type="radio" name="pref-#-#" value="neutral" checked/></td>
                                                             <td><input type="radio" name="pref-#-#" value="like"/></td>
@@ -97,9 +96,9 @@
                                                 <!-- for each presentation -->
                                                     <tr>
                                                         <td>Name</td>
-                                                        <td><input type="radio" name="pref-#-#" value="dislike"/></td>
-                                                        <td><input type="radio" name="pref-#-#" value="neutral" checked/></td>
-                                                        <td><input type="radio" name="pref-#-#" value="like"/></td>
+                                                        <td><input type="radio" name="pres-#" value="dislike"/></td>
+                                                        <td><input type="radio" name="pres-#" value="neutral" checked/></td>
+                                                        <td><input type="radio" name="pres-#" value="like"/></td>
                                                     </tr>
                                                 <!-- end for -->
                                             </table>
