@@ -110,9 +110,13 @@ Router.route('/manageAttendees', function (){
     this.render('manageAttendees');
 });
 
+Router.route('/myPreferences', function(){
+    this.render('myPreferences');
+});
+
 Router.route('/mySchedule', function() {
     this.render('mySchedule')
-})
+});
 
 Router.route('/newEvent', function (){
     this.render('newEvent');
