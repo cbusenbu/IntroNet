@@ -61,8 +61,8 @@ Template.newOneToManyEvent.events({
         event.preventDefault();
 
         if(isValidForm()){
+
             let eventObject = {
-                _id: new Mongo.ObjectID.valueOf(),
                 creatorID: Meteor.userId(),
                 createdAt: new Date(),
                 oneToOne: false,
@@ -74,13 +74,26 @@ Template.newOneToManyEvent.events({
                 activityCount: template.find("[name = 'activityCount']").value,
                 activityLength: template.find("[name = 'activityLength']").value,
                 totalTime: template.find("[name = 'totalTime']").value,
-                breakLength: template.find("[name = 'breakLength']").value
+                breakLength: template.find("[name = 'breakLength']").value,
+                sessions: []
             };
 
-            Meteor.call('insertEvent',eventObject,function(error,result){
-                Meteor.call('addEventToOwner',result)
+            for (i = 1;i <= document.getElementById("sessionCount").value;i++){
+                eventObject.sessions.push({
+                    sessionNumber: i ,
+                    sessionStart: document.getElementById("sess"+i+"Start").value,
+                    numOfActivities: document.getElementById("sess"+i+"Count").value
+                })
+            };
+
+
+
+            Meteor.call('insertEvent', eventObject, function (error, result) {
+                Meteor.call('addEventToOwner', result)
             });
-            console.log('insert noted')
+            console.log('insert noted');
+            Router.go('/eventsOwned');
         }
+
     }
 });

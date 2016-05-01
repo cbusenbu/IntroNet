@@ -53,7 +53,7 @@ Router.route('/eventRegistrationMany/:_id',{
     },
     action:function(){
         if(this.ready()){
-            this.render('eventRegistrationOne');
+            this.render('eventRegistrationMany');
         }else{
             this.render('loading');
         }
@@ -70,6 +70,9 @@ Router.route('/eventRegistrationOne/:_id',{
         }else{
             this.render('loading');
         }
+    },
+    data:function(){
+        Session.set('eventRegOneID',this.params._id);
     }
 });
 
@@ -127,6 +130,7 @@ Router.route('/newOneToManyEvent', function(){
 });
 
 Router.route('/newOneToOneEvent', function(){
+    Session.set("preferenceSettings",[]);
     this.render('newOneToOneEvent')
 });
 

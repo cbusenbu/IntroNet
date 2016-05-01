@@ -17,14 +17,14 @@
 
     <div class="wrapper wrapper-content animated fadeInRight">
 
-        {{#each eventObject}}
+        {{#each event in eventObject}}
         <div class="col-lg-8">
             <div class="ibox">
                 <div class="ibox-title"><h3>Event Information</h3></div>
                 <div class="ibox-content">
-                    <b>Event Name: </b><label id="eventName">{{name}}</label><br>
-                    <b>Event Location: </b><label id="eventLocation">{{location}}</label><br>
-                    <b>Event Dates: </b><label id="eventStart">{{startDate}}</label> to <label id="eventEnd">{{endDate}}</label><br>
+                    <b>Event Name: </b><label id="eventName">{{event.name}}</label><br>
+                    <b>Event Location: </b><label id="eventLocation">{{event.location}}</label><br>
+                    <b>Event Dates: </b><label id="eventStart">{{event.startDate}}</label> to <label id="eventEnd">{{event.endDate}}</label><br>
                 </div>
             </div>
         </div>
@@ -35,91 +35,64 @@
                     <div class="ibox-title">
                         <h3>Preference Settings</h3>
                     </div>
-                    <div class="ibox-content">
-                        <form class="form-horizontal">
-                            <p><label id="prefName_1">(Preference Name 1)</label></p>
-                            <div class="form-group">
-                                <label class="col-lg-3 control-label">Which Best Describes You?</label>
-                                <div class="col-sm-6">
-                                    <select class="form-control m-b" id="userAttribute_1">
-                                        <option>Option 1</option>
-                                        <option>Option 2</option>
-                                        <option>Option 3</option>
-                                    </select>
-                                </div>
-                                <div class="col-sm-12">
-                                    <label class="col-lg-3 control-label">Who would you like to meet?</label>
-                                    <div class="col-sm-9">
-                                        <table border="1">
-                                            <tr>
-                                                <th>Category</th>
-                                                <th>Prefer not to meet</th>
-                                                <th>No Preference</th>
-                                                <th>Prefer to meet</th>
-                                            </tr>
-                                            <tr>
-                                                <td>Option 1</td>
-                                                <td><input type="radio" name="pref-1-1" value="dislike"/></td>
-                                                <td><input type="radio" name="pref-1-1" value="neutral" checked/></td>
-                                                <td><input type="radio" name="pref-1-1" value="like"/></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Option 2</td>
-                                                <td><input type="radio" name="pref-1-2" value="dislike"/></td>
-                                                <td><input type="radio" name="pref-1-2" value="neutral" checked/></td>
-                                                <td><input type="radio" name="pref-1-2" value="like"/></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Option 3</td>
-                                                <td><input type="radio" name="pref-1-3" value="dislike"/></td>
-                                                <td><input type="radio" name="pref-1-3" value="neutral" checked/></td>
-                                                <td><input type="radio" name="pref-1-3" value="like"/></td>
-                                            </tr>
-                                        </table>
+
+                    {{#each preference in event.preferenceSettings}}
+                        <div class="ibox-content">
+                            <form class="form-horizontal">
+                                <p><label id="prefName_1">{{preference.prefName}}</label></p>
+                                <div class="form-group">
+                                    <label class="col-lg-3 control-label">Which Best Describes You?</label>
+                                    <div class="col-sm-6">
+                                        <select class="form-control m-b" id="userAttribute_1">
+                                            {{#each preferenceOption in preference.prefOptions}}
+                                            <option>{{preferenceOption}}</option>
+                                            {{/each}}
+                                        </select>
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <label class="col-lg-3 control-label">Who would you like to meet?</label>
+                                        <div class="col-sm-9">
+                                            <table border="1">
+                                                <tr>
+                                                    <th>Category</th>
+                                                    <th>Prefer not to meet</th>
+                                                    <th>No Preference</th>
+                                                    <th>Prefer to meet</th>
+                                                </tr>
+                                                {{#if isDetailedPreference preference.prefType}}
+                                                <!-- if detailed preference selection -->
+                                                    {{#each option in preference.prefOptions}}
+                                                    <!-- for each option -->
+                                                    <tr>
+                                                        <td>{{option}}</td>
+                                                        <td><input type="radio" name="pref-{{preference.prefName}}-{{option}}" value="dislike"/></td>
+                                                        <td><input type="radio" name="pref-{{preference.prefName}}-{{option}}" value="neutral" checked/></td>
+                                                        <td><input type="radio" name="pref-{{preference.prefName}}-{{option}}" value="like"/></td>
+                                                    </tr>
+                                                    {{/each}}
+                                                {{else}}
+                                                <!-- else ("like me" selection) -->
+                                                    <tr>
+                                                        <td>Like Me</td>
+                                                        <td><input type="radio" name="pref-{{preference.prefName}}-same" value="dislike"/></td>
+                                                        <td><input type="radio" name="pref-{{preference.prefName}}-same" value="neutral" checked/></td>
+                                                        <td><input type="radio" name="pref-{{preference.prefName}}-same" value="like"/></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Unlike Me</td>
+                                                        <td><input type="radio" name="pref-{{preference.prefName}}-same" value="dislike"/></td>
+                                                        <td><input type="radio" name="pref-{{preference.prefName}}-same" value="neutral" checked/></td>
+                                                        <td><input type="radio" name="pref-{{preference.prefName}}-same" value="like"/></td>
+                                                    </tr>
+                                                {{/if}}
+                                                <!-- end if -->
+                                            </table>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-
-                            <p><label id="prefName_2">(Preference Name 2)</label></p>
-                            <div class="form-group">
-                                <label class="col-lg-3 control-label">Which Best Describes You?</label>
-                                <div class="col-sm-6">
-                                    <select class="form-control m-b" id="userAttribute_2">
-                                        <option>Option 1</option>
-                                        <option>Option 2</option>
-                                        <option>Option 3</option>
-                                    </select>
-                                </div>
-                                <div class="col-sm-12">
-                                    <label class="col-lg-3 control-label">Who would you like to meet?</label>
-                                    <div class="col-sm-9">
-                                        <table border="1">
-                                            <tr>
-                                                <th>Category</th>
-                                                <th>Prefer not to meet</th>
-                                                <th>No Preference</th>
-                                                <th>Prefer to meet</th>
-                                            </tr>
-                                            <tr>
-                                                <td>Like Me</td>
-                                                <td><input type="radio" name="pref-2-same" value="dislike"/></td>
-                                                <td><input type="radio" name="pref-2-same" value="neutral" checked/></td>
-                                                <td><input type="radio" name="pref-2-same" value="like"/></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Unlike Me</td>
-                                                <td><input type="radio" name="pref-2-diff" value="dislike"/></td>
-                                                <td><input type="radio" name="pref-2-diff" value="neutral" checked/></td>
-                                                <td><input type="radio" name="pref-2-diff" value="like"/></td>
-                                            </tr>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div></div>
-                        </form>
-                    </div>
+                            </form>
+                        </div>
+                    {{/each}}
                 </div>
             </div>
             <div class="col-lg-8">
@@ -161,7 +134,7 @@
             </div>
             <div class="form-group">
                 <div class="col-lg-offset-1 col-lg-11">
-                    <button class="btn btn-sm btn-primary pull-left m-t-n-xs" type="submit"><strong>Sign Up</strong></button>
+                    <button class="btn btn-sm btn-primary pull-left m-t-n-xs" type="submit" id ="signUp"><strong>Sign Up</strong></button>
                 </div>
             </div>
         </form>

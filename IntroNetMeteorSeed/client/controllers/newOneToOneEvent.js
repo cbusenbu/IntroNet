@@ -27,6 +27,15 @@ Template.newOneToOneEvent.events({
         document.getElementById("newPrefName").value = "";
         document.getElementById("newPrefOptions").value = "";
         $('#modal-form').modal('hide');
+
+        var newPreferenceSetting = Session.get('preferenceSettings');
+        newPreferenceSetting.push({
+            prefName:name,
+            prefOptions:options.split(","),
+            prefType: type
+        });
+
+        Session.set('preferenceSettings',newPreferenceSetting)
     },
 
     'click #setSessionCount': function(event){
@@ -96,15 +105,24 @@ Template.newOneToOneEvent.events({
                 activityCount: template.find("[name = 'activityCount']").value,
                 activityLength: template.find("[name = 'activityLength']").value,
                 totalTime: template.find("[name = 'totalTime']").value,
-                breakLength: template.find("[name = 'breakLength']").value
-
-
+                breakLength: template.find("[name = 'breakLength']").value,
+                sessions: [],
+                preferenceSettings: Session.get("preferenceSettings")
             };
+
+            for (i = 1;i <= document.getElementById("sessionCount").value;i++){
+                eventObject.sessions.push({
+                    sessionNumber: i ,
+                    sessionStart: document.getElementById("sess"+i+"Start").value,
+                    numOfActivities: document.getElementById("sess"+i+"Count").value
+                })
+            };
+
+
 
             Meteor.call('insertEvent', eventObject, function (error, result) {
                 Meteor.call('addEventToOwner', result)
             });
-
             console.log('insert noted');
             Router.go('/eventsOwned');
         }

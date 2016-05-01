@@ -19,7 +19,10 @@ if(Meteor.isServer){
                 totalTime: event.totalTime,
                 breakLength: event.breakLength,
                 attendees:[],
-                preference:[]
+                schedules:[],
+                registrations: [],
+                preferenceSettings:event.preferenceSettings,
+                session: event.sessions,
             });
 
             
