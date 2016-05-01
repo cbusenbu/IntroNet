@@ -54,8 +54,18 @@
       <file leaf-file-name="myPreferences.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/client/views/pages/myPreferences.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+            <state relative-caret-position="579">
+              <caret line="108" column="35" selection-start-line="108" selection-start-column="35" selection-end-line="108" selection-end-column="35" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="eventRegistrationOne.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/views/pages/eventRegistrationOne.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="12" column="12" selection-start-line="2" selection-start-column="4" selection-end-line="12" selection-end-column="12" />
               <folding />
             </state>
           </provider>
@@ -118,10 +128,10 @@
         <option value="$PROJECT_DIR$/client/views/pages/mySchedule.html" />
         <option value="$PROJECT_DIR$/client/views/pages/allSchedules.html" />
         <option value="$PROJECT_DIR$/client/views/pages/manageAttendees.html" />
-        <option value="$PROJECT_DIR$/client/views/pages/myPreferences.html" />
         <option value="$PROJECT_DIR$/client/views/pages/viewEventAttendees.html" />
         <option value="$PROJECT_DIR$/client/config/router.js" />
         <option value="$PROJECT_DIR$/client/views/pages/eventsAttending.html" />
+        <option value="$PROJECT_DIR$/client/views/pages/myPreferences.html" />
       </list>
     </option>
   </component>
@@ -456,12 +466,12 @@
       <workItem from="1461112897265" duration="5265000" />
       <workItem from="1461201384981" duration="5475000" />
       <workItem from="1461957014846" duration="9359000" />
-      <workItem from="1462117425842" duration="5283000" />
+      <workItem from="1462117425842" duration="6315000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="82029000" />
+    <option name="totallyTimeSpent" value="83061000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
@@ -721,14 +731,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/views/pages/eventRegistrationOne.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="8" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/views/pages/home.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
@@ -849,10 +851,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/client/views/pages/eventRegistrationOne.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="12" selection-start-line="2" selection-start-column="4" selection-end-line="12" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/client/views/pages/myPreferences.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+        <state relative-caret-position="579">
+          <caret line="108" column="35" selection-start-line="108" selection-start-column="35" selection-end-line="108" selection-end-column="35" />
           <folding />
         </state>
       </provider>
