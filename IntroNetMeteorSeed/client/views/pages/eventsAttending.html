@@ -31,7 +31,7 @@
                             <th>Location</th>
                         </tr>
 
-                        {{#each event in eventsAttending}}
+                        <!-- {{#each event in eventsAttending}} -->
                             <tr>
                                 <td><b>{{event.name}}</b></td>
                                 <td>{{event.startDate}}</td>
@@ -40,7 +40,8 @@
                                 <td><a class="btn" type="button" href ="#">Preferences</a></td>
                                 <td><a class="btn" type="button" href ="mySchedule/{{event._id}}">Schedule</a></td>
                             </tr>
-                        {{/each}}
+                        <!-- {{each}} -->
+    
                     </table>
                 </div>
             </div>
