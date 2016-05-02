@@ -29,8 +29,8 @@ Template.eventRegistrationOne.events({
         });
 
         if(!Session.get('isAttendee')){
-            //Meteor.call('addAttendeeToEvent',eventObj._id);
-            //Meteor.call('addEventToAttendee',eventObj._id);
+            Meteor.call('addAttendeeToEvent',eventObj._id);
+            Meteor.call('addEventToAttendee',eventObj._id);
             var registration = {
                 attendeeId: Meteor.userId(),
                 registrationTime : new Date(),
@@ -114,14 +114,14 @@ Template.eventRegistrationOne.events({
 
                 registration.preferences.push(preference);
                 //console.log("finished");
-                console.log(registration);
+                //console.log(registration);
                 //console.log(eventObj._id)
                 
 
 
             }
-            //Meteor.call('addRegistrationToEvent',eventObj._id,registration);
+            Meteor.call('addRegistrationToEvent',eventObj._id,registration);
         }
-        //Router.go('eventsAttending');
+        Router.go('eventsAttending');
     }
 });
