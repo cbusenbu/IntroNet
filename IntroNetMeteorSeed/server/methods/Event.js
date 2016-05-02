@@ -87,6 +87,10 @@ if(Meteor.isServer){
             else{
                 return 0;
             }
+        },
+
+        'addRegistrationToEvent':function(eventID,registrationObj){
+            Events.update({_id: eventID},{$addToSet: {registrations:registrationObj}});
         }
     })
 }

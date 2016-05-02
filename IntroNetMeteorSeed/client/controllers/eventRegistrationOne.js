@@ -48,23 +48,58 @@ Template.eventRegistrationOne.events({
                         preferenceSelections:[]
 
                     };
-                    //if detailed
-                    for(j=0; j< eventObj.preferenceSettings.prefOptions.length;j++){
-                        var prefOpt = eventObj.preferenceSettings.prefOptions[j];
-                        var checkboxArray = Document.getElementsByName("pref-"+prefName+"-"+prefOpt);
-                        var prefValue = "";
-                        for(element in checkboxArray){
-                            if(element.checked){
-                                prefValue = element.value;
+                    if(eventObj.preferenceSettings[i].prefType == "Detailed"){
+                        for(j=0; j< eventObj.preferenceSettings.prefOptions.length;j++){
+                            var prefOpt = eventObj.preferenceSettings.prefOptions[j];
+                            var checkboxArray = Document.getElementsByName("pref-"+prefName+"-"+prefOpt);
+                            var prefValue = "";
+                            for(element in checkboxArray){
+                                if(element.checked){
+                                    prefValue = element.value;
+                                }
                             }
+
+                            var preferenceSelect = {
+                                categoryName: prefOpt,
+                                prefValue:prefValue
+                            }
+                            preference.preferenceSelections.push(preferenceSelect);
+                        };
+                    }else{
+                        for(j = 0; j< eventObj.preferenceSettings.prefOptions.length; j++){
+                            var prefOpt = eventObj.preferenceSettings.prefOptions[j];
+                            var checkboxSameArray = Document.getElementsByName("pref-"+prefName+"-same");
+                            var checkboxDiffArray = Document.getElementsByName("pref-"+prefName+"-diff");
+                            if(prefOpt == prefName){
+                                for( element in checkoutSameArray){
+                                    if(element.checked){
+                                        prefValueSame = element.value;
+                                    }
+                                }
+                                var preferenceSelectSame = {
+                                    categoryName: prefOpt,
+                                    prefValue:prefValueSame
+                                }
+                                preference.preferenceSelections.push(preferenceSelectSame);
+
+                            }else{
+                                for(element in checkboxDiffArray){
+                                    if(element.checked){
+                                        prefValueDiff=element.value;
+                                    }
+                                }
+                                var preferenceSelectDiff = {
+                                    categoryname: prefOpt,
+                                    prefValue:prefValueDiff
+                                }
+                                preference.preferenceSelections.push(preferenceSelectDiff);
+                            }
+
                         }
 
-                        var preferenceSelect = {
-                            categoryName: Document.getElementsByName(prefOpt),
-                            prefValue:prefValue
-                        }
-                        preference.preferenceSelections.push(preferenceSelect);
-                    };
+                    }
+                    Meteor.call('addRegistrationToEvent',eventObj._id,registration);
+
                     //else
 
                     
