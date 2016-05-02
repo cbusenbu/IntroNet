@@ -38,7 +38,7 @@ if(Meteor.isServer){
 
         'userAttendingEvents': function(){
             var userObject = Meteor.user();
-            if (userObject.eventsAttending && (userObject.evensAttending.length!= 0)){
+            if (userObject.eventsAttending && (userObject.eventsAttending.length!= 0)){
                 return true;
             }else{
                 return false;
