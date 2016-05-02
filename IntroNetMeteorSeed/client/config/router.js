@@ -16,9 +16,18 @@ Router.route('/', function () {
     this.render('home');
 });
 
-Router.route('/allSchedules', function() {
-    this.render('allSchedules')
-})
+Router.route('/allSchedules/:_id',{
+    subscriptions: function(){
+        return Meteor.subscribe('eventById',this.params._id);
+    },
+    action: function() {
+        if(this.ready()) {
+            this.render('allSchedules');
+        }else{
+            this.render('loadings');
+        }
+    }
+});
 
 Router.route('/eventDetails/:_id',{
     subscriptions: function(){
