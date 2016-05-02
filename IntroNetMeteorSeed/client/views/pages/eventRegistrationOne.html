@@ -45,7 +45,7 @@
                                     <div class="col-sm-6">
                                         <select class="form-control m-b" id="userAttribute_{{preference.prefName}}">
                                             {{#each preferenceOption in preference.prefOptions}}
-                                            <option>{{preferenceOption}}</option>
+                                                <option>{{preferenceOption}}</option>
                                             {{/each}}
                                         </select>
                                     </div>
@@ -80,9 +80,9 @@
                                                     </tr>
                                                     <tr>
                                                         <td>Unlike Me</td>
-                                                        <td><input type="radio" name="pref-{{preference.prefName}}-same" value="dislike"/></td>
-                                                        <td><input type="radio" name="pref-{{preference.prefName}}-same" value="neutral" checked/></td>
-                                                        <td><input type="radio" name="pref-{{preference.prefName}}-same" value="like"/></td>
+                                                        <td><input type="radio" name="pref-{{preference.prefName}}-diff" value="dislike"/></td>
+                                                        <td><input type="radio" name="pref-{{preference.prefName}}-diff" value="neutral" checked/></td>
+                                                        <td><input type="radio" name="pref-{{preference.prefName}}-diff" value="like"/></td>
                                                     </tr>
                                                 {{/if}}
                                                 <!-- end if -->

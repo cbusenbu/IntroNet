@@ -14,8 +14,14 @@ Template.navigation.helpers({
             Session.set('ownsEvents',result);
         });
         return Session.get('ownsEvents');
-
-
+    },
+    
+    attendingEvents: function() {
+        var deferred;
+        Meteor.call('userAttendingEvents',function(error,result){
+            Session.set('isAttendingEvents',result);
+        })
+        return Session.get('isAttendingEvents');
     }
     
 });

@@ -71,10 +71,5 @@ Template.eventRegistrationOne.events({
                 }
             }
         });
-
-
     }
-
-
-
 });

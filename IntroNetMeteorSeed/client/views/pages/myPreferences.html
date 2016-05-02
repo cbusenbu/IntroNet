@@ -24,6 +24,7 @@
 
                     <!-- if OneToOne -->
                         <!-- for each preference -->
+                        {{#each preference in event.preferenceSettings}}
                             <div class="ibox-content">
                                 <form class="form-horizontal">
                                     <p><label id="prefName_1">(Preference Name 1)</label></p>
@@ -31,9 +32,9 @@
                                         <label class="col-lg-3 control-label">Which Best Describes You?</label>
                                         <div class="col-sm-6">
                                             <select class="form-control m-b" id="userAttribute_1">
-                                                <!-- for each option in preference -->
-                                                <option>Option Name</option>
-                                                <!-- end for -->
+                                                {{#each preferenceOption in preference.prefOptions}}
+                                                    <option>{{preferenceOption}}</option>
+                                                {{/each}}
                                             </select>
                                         </div>
                                         <div class="col-sm-12">
@@ -47,7 +48,9 @@
                                                         <th>Prefer to meet</th>
                                                     </tr>
 
+                                                    {{#if isDetailedPreference preference.prefType}}
                                                     <!-- if detailed preference selection -->
+                                                        {{#each option in preference.prefOptions}}
                                                         <!-- for each option -->
                                                         <tr>
                                                             <td>Option Name</td>
@@ -56,20 +59,23 @@
                                                             <td><input type="radio" name="pref-#-#" value="like"/></td>
                                                         </tr>
                                                         <!-- end for -->
+                                                        {{/each}}
                                                     <!-- else ("like me" selection) -->
+                                                    {{else}}
                                                     <tr>
                                                         <td>Like Me</td>
-                                                        <td><input type="radio" name="pref-2-same" value="dislike"/></td>
-                                                        <td><input type="radio" name="pref-2-same" value="neutral" checked/></td>
-                                                        <td><input type="radio" name="pref-2-same" value="like"/></td>
+                                                        <td><input type="radio" name="pref-{{preference.prefName}}-same" value="dislike"/></td>
+                                                        <td><input type="radio" name="pref-{{preference.prefName}}-same" checked/></td>
+                                                        <td><input type="radio" name="pref-{{preference.prefName}}-same"/></td>
                                                     </tr>
                                                     <tr>
                                                         <td>Unlike Me</td>
-                                                        <td><input type="radio" name="pref-2-diff" value="dislike"/></td>
-                                                        <td><input type="radio" name="pref-2-diff" value="neutral" checked/></td>
-                                                        <td><input type="radio" name="pref-2-diff" value="like"/></td>
+                                                        <td><input type="radio" name="pref-{{preference.prefName}}-diff" value="dislike"/></td>
+                                                        <td><input type="radio" name="pref-{{preference.prefName}}-diff" value="neutral" checked/></td>
+                                                        <td><input type="radio" name="pref-{{preference.prefName}}-diff" value="like"/></td>
                                                     </tr>
                                                     <!-- end if -->
+                                                    {{/if}}
                                                 </table>
                                             </div>
                                         </div>
@@ -77,6 +83,7 @@
                                 </form>
                             </div>
                         <!-- end foreach -->
+                        {{/each}}
                     <!-- else if OneToMany -->
                         <div class="ibox-content">
                             <form class="form-horizontal">
@@ -107,7 +114,6 @@
                                 </div>
                             </form>
                         </div>
-                        <!-- end foreach -->
                     <!-- end if -->
 
                 </div>
