@@ -116,11 +116,11 @@ Template.eventRegistrationOne.events({
                 console.log("finished");
                 console.log(registration);
                 console.log(eventObj._id)
-                Meteor.call('addRegistrationToEvent',eventObj._id,registration);
+                
 
 
             }
-
+            Meteor.call('addRegistrationToEvent',eventObj._id,registration);
         }
         Router.go('eventsAttending');
     }
