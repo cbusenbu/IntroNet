@@ -13,6 +13,11 @@ if(Meteor.isServer){
         return this.ready();
     });
 
+    Meteor.publish('eventsByAttendee',function(){
+        var currentUserID = this.userId;
+        //TODO
+    });
+
     Meteor.publish('eventById', function(event_id){
         eventSpecific = Events.find({_id: event_id});
 

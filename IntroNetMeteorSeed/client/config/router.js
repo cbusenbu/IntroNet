@@ -85,8 +85,21 @@ Router.route('/eventRegistrationOne/:_id',{
     }
 });
 
-Router.route('/eventsAttending', function (){
-    this.render('eventsAttending');
+Router.route('/eventsAttending', {
+    path: '/eventsAttending',
+        template: 'eventsAttending',
+        subscriptions: function() {
+        //TODO: implement eventsByAttendee subscription
+        //return Meteor.subscribe('eventsByAttendee');
+    },
+
+    action:function(){
+        if(this.ready()){
+            this.render();
+        }else{
+            this.render('loading');
+        }
+    }
 });
 
 Router.route( 'eventsOwned', {
