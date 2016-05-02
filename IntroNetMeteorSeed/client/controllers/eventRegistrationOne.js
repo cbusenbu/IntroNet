@@ -63,6 +63,7 @@ Template.eventRegistrationOne.events({
                             categoryName: Document.getElementsByName(prefOpt),
                             prefValue:prefValue
                         }
+                        preference.preferenceSelections.push(preferenceSelect);
                     };
                     //else
 
