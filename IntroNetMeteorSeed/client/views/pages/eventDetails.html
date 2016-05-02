@@ -4,6 +4,7 @@
         th, td {
             padding: 5px;
             border-bottom: 1px solid darkgray;
+            text-align: center;
         }
 
         input[type="number"]{
@@ -26,16 +27,19 @@
                         <div class="col-lg-6">
                             <b>Event Name: </b><label id="eventName">{{event.name}}</label><br>
                             <b>Event Location: </b><label id="eventLocation">{{event.location}}</label><br>
-                            <b>Event Dates: </b><label id="eventStart">{{event.startDate}}</label> to <label id="eventEnd">{{showEndDate}}</label><br>
+                            <b>Event Dates: </b><label id="eventStart">{{event.startDate}}</label> to <label id="eventEnd">{{event.endDate}}</label><br>
                             <br>
-                            <b>Event Signup URL: </b><label id="eventURL">{{showURL}}</label><br>
+                            <b>Event ID (needed for signup): </b><label id="eventID">{{event._id}}</label><br>
                         </div>
                         <div class="col-lg-6">
-                            <b>Event Type: </b><label id="eventType">{{getEventType}}</label><br>
-                            <b>Number of Activities: </b><label id="activityCount">{{getActivityCount}}</label><br>
-                            <b>Activity Length: </b><label id="activityLength">{{getActivityLength}}</label><br>
-                            <b>Break Length: </b><label id="breakLength">{{getBreakLength}}</label><br>
-                            <b>Time Filled </b><label id="activityCount">{{getActivityCount}}</label> minutes<br>
+                            <b>Event Type: </b><label id="eventType">
+                                {{#if event.oneToOne}}One-To-One{{/if}}
+                                {{#if event.oneToMany}}One-To-Many{{/if}}
+                                </label><br>
+                            <b>Number of Activities: </b><label id="activityCount">{{event.activityCount}}</label><br>
+                            <b>Activity Length: </b><label id="activityLength">{{event.activityLength}}</label><br>
+                            <b>Break Length: </b><label id="breakLength">{{event.breakLength}}</label><br>
+                            <b>Time Filled: </b><label id="activityCount">{{event.totalTime}}</label> minutes<br>
                         </div>
                     </div>
                 </div>
@@ -51,27 +55,24 @@
                        <tr>
                            <th>Preference Name</th>
                            <th>Options</th>
+                           <th>Preference Selection Type</th>
                        </tr>
-                       <tr>
-                           <td>Preference 1</td>
-                           <td>
-                               <ul>
-                                   <li>Option 1</li>
-                                   <li>Option 2</li>
-                                   <li>Option 3</li>
-                               </ul>
-                           </td>
-                       </tr>
-                       <tr>
-                           <td>Preference 2</td>
-                           <td>
-                               <ul>
-                                   <li>Option 1</li>
-                                   <li>Option 2</li>
-                                   <li>Option 3</li>
-                               </ul>
-                           </td>
-                       </tr>
+                       {{#each preference in event.preferenceSettings}}
+                           <tr>
+                               <td>{{preference.prefName}}</td>
+                               <td>
+                                   <ul>
+                                       {{#each option in preference.prefOptions}}
+                                            <li>{{option}}</li>
+                                       {{/each}}
+                                   </ul>
+                               </td>
+                               <td>
+                                   {{preference.prefType}}
+                               </td>
+                           </tr>
+                       {{/each}}
+
                    </table>
                 </div>
             </div>

@@ -16,6 +16,7 @@ if(Meteor.isServer){
                 startDate: event.startDate,
                 endDate:event.endDate,
                 activityCount: event.activityCount,
+                activityLength: event.activityLength,
                 totalTime: event.totalTime,
                 breakLength: event.breakLength,
                 attendees:[],
