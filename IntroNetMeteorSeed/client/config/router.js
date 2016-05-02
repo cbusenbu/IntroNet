@@ -109,16 +109,40 @@ Router.route('/login', function (){
     this.layout('blankLayout');
 });
 
-Router.route('/manageAttendees', function (){
-    this.render('manageAttendees');
+Router.route('/manageAttendees/:_id',{
+    subscriptions: function() {
+        return Meteor.subscribe('eventById',this.params._id);
+    },
+    action: function(){
+        if(this.ready())
+            this.render('manageAttendees');
+        else
+            this.render('loading');
+    }
 });
 
-Router.route('/myPreferences', function(){
-    this.render('myPreferences');
+Router.route('/myPreferences/:_id',{
+    subscriptions: function() {
+        return Meteor.subscribe('eventById',this.params._id);
+    },
+    action: function() {
+        if(this.ready())
+            this.render('myPreferences');
+        else
+            this.render('loading');
+    }
 });
 
-Router.route('/mySchedule', function() {
-    this.render('mySchedule')
+Router.route('/mySchedule/:_id',{
+    subscriptions: function() {
+        return Meteor.subscribe('eventById',this.params._id);
+    },
+    action: function() {
+        if (this.ready())
+            this.render('mySchedule');
+        else
+            this.render('loading');
+    }
 });
 
 Router.route('/newEvent', function (){
@@ -139,14 +163,30 @@ Router.route('/register', function(){
     this.layout('blankLayout');
 });
 
-Router.route('/stopWatch', function(){
-    this.render('stopWatch')
+Router.route('/stopWatch/:_id',{
+    subscriptions: function() {
+        return Meteor.subscribe('eventById',this.params._id);
+    },
+    action: function(){
+        if(this.ready)
+            this.render('stopWatch');
+        else
+            this.render('loading');
+    }
 });
 
 Router.route('/userProfile', function (){
     this.render('userProfile');
 });
 
-Router.route('/viewEventAttendees', function(){
-    this.render('viewEventAttendees')
+Router.route('/viewEventAttendees/:_id',{
+    subscriptions: function() {
+        return Meteor.subscribe('eventById',this.params._id);
+    },
+    action: function(){
+        if(this.ready)
+            this.render('viewEventAttendees');
+        else
+            this.render('loading');
+    }
 });

@@ -34,6 +34,15 @@ if(Meteor.isServer){
             else{
                 return false;
             }
+        },
+
+        'userAttendingEvents': function(){
+            var userObject = Meteor.user();
+            if (userObject.eventsAttending && (userObject.evensAttending.length!= 0)){
+                return true;
+            }else{
+                return false;
+            }
         }
     });
 }
