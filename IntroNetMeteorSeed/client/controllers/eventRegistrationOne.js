@@ -4,72 +4,114 @@
 
 Template.eventRegistrationOne.helpers({
     eventObject : function(){
-        return Events.find();
+        return Events.find()
     },
 
-    isDetailedPreference: function(prefType){
-        if(prefType == "Detailed"){
-            return true;
-        }else{
-            return false;
-        }
+    isDetailedPreference: function(prefType) {
+        return (prefType == "Detailed")
     }
+
+
 });
 
 Template.eventRegistrationOne.events({
-    'submit #signUp': function(event,template){
+
+    'submit form': function(event,template){
+        event.preventDefault();
         var eventObj = Events.find().fetch()[0];
 
-        Meteor.call('isAttendee',eventObj._id, function(error,result){
+        Meteor.call('isAttendee',eventObj._id,function(error,result){
             if(result){
-                Router.go('eventsAttending');
-
+                Session.set('isAttendee',true);
             }else{
-                Meteor.call('addAttendeeToEvent',eventObj);
-                Meteor.call('addEventToAttendee',eventObj);
-                var registration = {
-                    attendeeId: Meteor.userId(),
-                    registrationTime : new Date(),
-                    arrivalDate:Document.getElementById("lateArrivalDay").value,
-                    arrivalHour:Document.getElementById("lateArrivalHour").value,
-                    arrivalMinutes:Document.getElementById("lateArriveMin").value,
-                    departureDate:Document.getElementById("earlyDepartureDay").value,
-                    departureHour:Document.getElementById("earlyDepartureHour").value,
-                    departureMinute:Document.getElementById("earlyDepartureMin").value,
-                    handicapped:Document.getElementById("handicapped").checked,
-                    preferences:[]
-                }
+                Session.set('isAttendee',false);
+            }
+        });
 
-                for( i = 0; i< eventObj.preferenceSettings.length;i++){
-                    var prefName = eventObj.preferenceSettings[i].prefName;
-                    var preference = {
-                        prefName: prefName,
-                        userCategory:Document.getElementById("userAttribute_"+prefName),
-                        preferenceSelections:[]
+        if(!Session.get('isAttendee')){
+            Meteor.call('addAttendeeToEvent',eventObj._id);
+            Meteor.call('addEventToAttendee',eventObj._id);
+            var registration = {
+                attendeeId: Meteor.userId(),
+                registrationTime : new Date(),
+                arrivalDate: document.getElementById("lateArrivalDay").value,
+                arrivalHour: document.getElementById("lateArrivalHour").value,
+                arrivalMinutes:document.getElementById("lateArrivalMin").value,
+                departureDate:document.getElementById("earlyDepartureDay").value,
+                departureHour:document.getElementById("earlyDepartureHour").value,
+                departureMinute:document.getElementById("earlyDepartureMin").value,
+                handicapped:document.getElementById("handicapped").checked,
+                isVIP:false,
+                preferences:[]
+            };
 
-                    };
-                    //if detailed
-                    for(j=0; j< eventObj.preferenceSettings.prefOptions.length;j++){
-                        var prefOpt = eventObj.preferenceSettings.prefOptions[j];
-                        var checkboxArray = Document.getElementsByName("pref-"+prefName+"-"+prefOpt);
+            for( i = 0; i< eventObj.preferenceSettings.length;i++){
+                var prefName = eventObj.preferenceSettings[i].prefName;
+                var userCategory = document.getElementById("userAttribute_"+prefName).value;
+                var preference = {
+                    prefName: prefName,
+                    userCategory: userCategory,
+                    preferenceSelections:[]
+
+                };
+
+                if(eventObj.preferenceSettings[i].prefType == "Detailed"){
+                    for(j=0; j< eventObj.preferenceSettings[i].prefOptions.length;j++){
+                        var prefOpt = eventObj.preferenceSettings[i].prefOptions[j];
+                        var checkboxArray = document.getElementsByName("pref-"+prefName+"-"+prefOpt);
                         var prefValue = "";
-                        for(element in checkboxArray){
-                            if(element.checked){
-                                prefValue = element.value;
+                        for(k = 0; k < checkboxArray.length; k++){
+                            if(checkboxArray[k].checked){
+                                prefValue = checkboxArray[k].value;
                             }
                         }
 
                         var preferenceSelect = {
-                            categoryName: Document.getElementsByName(prefOpt),
+                            categoryName: prefOpt,
                             prefValue:prefValue
                         }
                         preference.preferenceSelections.push(preferenceSelect);
-                    };
-                    //else
-
-                    
+                    }
                 }
+                else //'(Un)like me' selection
+                {
+                    for(j = 0; j< eventObj.preferenceSettings[i].prefOptions.length; j++){
+                        var prefOpt = eventObj.preferenceSettings[i].prefOptions[j];
+                        var checkboxSameArray = document.getElementsByName("pref-"+prefName+"-same");
+                        var checkboxDiffArray = document.getElementsByName("pref-"+prefName+"-diff");
+                        if(prefOpt == userCategory){
+                            var prefValueSame = '';
+                            for(k = 0; k<checkboxSameArray.length; k++){
+                                if(checkboxSameArray[k].checked){
+                                    prefValueSame = checkboxSameArray[k].value;
+                                }
+                            }
+                            var preferenceSelectSame = {
+                                categoryName: prefOpt,
+                                prefValue:prefValueSame
+                            };
+                            preference.preferenceSelections.push(preferenceSelectSame);
+
+                        }
+                        else{
+                            var prefValueDiff = '';
+                            for(k = 0; k<checkboxDiffArray.length; k++){
+                                if(checkboxDiffArray[k].checked){
+                                    prefValueDiff=checkboxDiffArray[k].value;
+                                }
+                            }
+                            var preferenceSelectDiff = {
+                                categoryName: prefOpt,
+                                prefValue:prefValueDiff
+                            };
+                            preference.preferenceSelections.push(preferenceSelectDiff);
+                        }
+                    }
+                }
+                registration.preferences.push(preference);
             }
-        });
+            Meteor.call('addRegistrationToEvent',eventObj._id,registration);
+        }
+        Router.go('eventsAttending');
     }
 });

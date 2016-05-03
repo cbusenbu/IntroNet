@@ -22,11 +22,13 @@
                             <tbody>
 
                                 <!-- for each attending user (alphabetical order) -->
+                                {{#each user in attendees}}
                                     <tr>
-                                        <td>Name</td>
-                                        <td>Biography</td>
-                                        <td>IceBreakers</td>
+                                        <td>{{user.profile.name}}</td>
+                                        <td>{{user.profile.biography}}</td>
+                                        <td>{{user.profile.iceBreakers}}</td>
                                     </tr>
+                                {{/each}}
                                 <!-- end each user -->
 
                             </tbody>

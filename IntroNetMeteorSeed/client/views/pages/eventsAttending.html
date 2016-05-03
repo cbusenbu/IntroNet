@@ -31,16 +31,17 @@
                             <th>Location</th>
                         </tr>
 
-                        <!-- {{#each event in eventsAttending}} -->
+                        {{#each event in eventsOfAttendee}}
                             <tr>
                                 <td><b>{{event.name}}</b></td>
                                 <td>{{event.startDate}}</td>
                                 <td>{{event.location}}</td>
+                                <td><a class="btn" type="button" href ="eventDetails/{{event._id}}">Event Details</a></td>
                                 <td><a class="btn" type="button" href ="viewEventAttendees/{{event._id}}">Attendees</a></td>
                                 <td><a class="btn" type="button" href ="myPreferences/{{event._id}}">Preferences</a></td>
                                 <td><a class="btn" type="button" href ="mySchedule/{{event._id}}">Schedule</a></td>
                             </tr>
-                        <!-- {{/each}} -->
+                        {{/each}}
 
                     </table>
                 </div>

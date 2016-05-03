@@ -5,29 +5,46 @@ Template.eventRegistrationMany.helpers({
 });
 
 Template.eventRegistrationMany.events({
-    'submit #signUp': function(event,template){
+
+    'submit form': function(event,template){
+        event.preventDefault();
         var eventObj = Events.find().fetch()[0];
 
-        Meteor.call('isAttendee',eventObj._id, function(error,result){
+        Meteor.call('isAttendee',eventObj._id,function(error,result){
             if(result){
-                Router.go('eventsAttending');
+                Session.set('isAttendee',true);
             }else{
-                Meteor.call('addAttendeeToEvent',eventObj);
-                Meteor.call('addEventToAttendee',eventObj);
-                var registration = {
-                    attendeeId: Meteor.userId(),
-                    registrationTime : new Date(),
-                    arrivalDate:Document.getElementById("lateArrivalDay").value,
-                    arrivalHour:Document.getElementById("lateArrivalHour").value,
-                    arrivalMinutes:Document.getElementById("lateArriveMin").value,
-                    departureDate:Document.getElementById("earlyDepartureDay").value,
-                    departureHour:Document.getElementById("earlyDepartureHour").value,
-                    departureMinute:Document.getElementById("earlyDepartureMin").value,
-                    preferences:[]
-                }
-
-                //(preferences not collected here for one-to-many events)
+                Session.set('isAttendee',false);
             }
         });
+
+        if(!Session.get('isAttendee')){
+            Meteor.call('addAttendeeToEvent',eventObj._id);
+            Meteor.call('addEventToAttendee',eventObj._id);
+            var registration = {
+                attendeeId: Meteor.userId(),
+                registrationTime : new Date(),
+                arrivalDate: document.getElementById("lateArrivalDay").value,
+                arrivalHour: document.getElementById("lateArrivalHour").value,
+                arrivalMinutes:document.getElementById("lateArrivalMin").value,
+                departureDate:document.getElementById("earlyDepartureDay").value,
+                departureHour:document.getElementById("earlyDepartureHour").value,
+                departureMinute:document.getElementById("earlyDepartureMin").value,
+                preferences:[],
+                isVIP:false,
+            };
+            Meteor.call('addRegistrationToEvent',eventObj._id,registration);
+
+            if(document.getElementById("isPresenting").checked) {
+                var presentation = {
+                    presenter:Meteor.userId(),
+                    presenterName:Meteor.user().profile.name,
+                    title:document.getElementById("title").value,
+                    abstract:document.getElementById("abstract").value
+                }
+                Meteor.call('addPresentationToEvent', eventObj._id, presentation);
+            }
+        }
+        Router.go('eventsAttending');
     }
 });

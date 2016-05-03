@@ -23,6 +23,7 @@ if(Meteor.isServer){
                 schedules:[],
                 registrations: [],
                 preferenceSettings:event.preferenceSettings,
+                presentations:[],
                 session: event.sessions,
             });
 
@@ -33,6 +34,10 @@ if(Meteor.isServer){
         },
         'addEventToOwner': function(eventID){
             Meteor.users.update({_id: Meteor.userId()}, {$addToSet: { "eventsOwned" : eventID}});
+        },
+
+        'addPresentationToEvent': function(eventID,presentation){
+            Events.update({_id: eventID}, {$addToSet: {"presentations" : presentation}});
         },
 
         'addEventToAttendee': function( eventID){
@@ -49,7 +54,7 @@ if(Meteor.isServer){
 
             var currentEvent = Events.findOne({_id:eventID});
             var creator = currentEvent.creatorID;
-            var eventAttendees = currentEvent.attendees
+            var eventAttendees = currentEvent.attendees;
 
             Meteor.users.update({_id:creator}, {$pull: {eventsOwned : eventID}});
 
@@ -88,6 +93,10 @@ if(Meteor.isServer){
             else{
                 return 0;
             }
+        },
+
+        'addRegistrationToEvent':function(eventID,registrationObj){
+            Events.update({_id: eventID},{$addToSet: {"registrations":registrationObj}});
         }
     })
 }
