@@ -332,10 +332,8 @@ function userList(numUsers){
 }
 
 function addSchedules(schedule, numAct, userList){
-    var table = document.getElementById("Schedules").innerHTML;
-    console.log(numAct);
+    var table = document.getElementById("Schedules").innerHTML;;
     for(i=0; i<schedule.length; i++){
-        console.log(i);
         for(j=1; j<numAct+1; j++){
             //var person = i+1;
             var person = userList[i];

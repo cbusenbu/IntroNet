@@ -26,8 +26,10 @@
         <item url="file://$USER_HOME$/AppData/Local/.meteor/packages/blaze-tools/1.0.8/web.browser/tojs.js" />
         <item url="file://$USER_HOME$/AppData/Local/.meteor/packages/blaze-tools/1.0.8/web.browser/preamble.js" />
         <item url="file://$USER_HOME$/AppData/Local/.meteor/packages/remcoder_chronos/0.3.1/web.browser/packages/remcoder_chronos.js" />
+        <item url="file://$USER_HOME$/AppData/Local/.meteor/packages/sacha_spin/2.3.1/web.browser/packages/sacha_spin.js" />
         <item url="file://$USER_HOME$/AppData/Local/.meteor/packages/caching-compiler/1.0.4/web.browser/multi-file-caching-compiler.js" />
         <item url="file://$USER_HOME$/AppData/Local/.meteor/packages/caching-compiler/1.0.4/web.browser/caching-compiler.js" />
+        <item url="file://$USER_HOME$/AppData/Local/.meteor/packages/sacha_spin/2.3.1/web.browser/packages/sacha_spin/lib/spinner.css" />
         <item url="file://$USER_HOME$/AppData/Local/.meteor/packages/caching-html-compiler/1.0.6/web.browser/caching-html-compiler.js" />
         <item url="file://$USER_HOME$/AppData/Local/.meteor/packages/callback-hook/1.0.8/web.browser/hook.js" />
         <item url="file://$USER_HOME$/AppData/Local/.meteor/packages/check/1.2.1/web.browser/match.js" />
@@ -238,8 +240,10 @@
       <root url="file://$USER_HOME$/AppData/Local/.meteor/packages/blaze-tools/1.0.8/web.browser/tojs.js" />
       <root url="file://$USER_HOME$/AppData/Local/.meteor/packages/blaze-tools/1.0.8/web.browser/preamble.js" />
       <root url="file://$USER_HOME$/AppData/Local/.meteor/packages/remcoder_chronos/0.3.1/web.browser/packages/remcoder_chronos.js" />
+      <root url="file://$USER_HOME$/AppData/Local/.meteor/packages/sacha_spin/2.3.1/web.browser/packages/sacha_spin.js" />
       <root url="file://$USER_HOME$/AppData/Local/.meteor/packages/caching-compiler/1.0.4/web.browser/multi-file-caching-compiler.js" />
       <root url="file://$USER_HOME$/AppData/Local/.meteor/packages/caching-compiler/1.0.4/web.browser/caching-compiler.js" />
+      <root url="file://$USER_HOME$/AppData/Local/.meteor/packages/sacha_spin/2.3.1/web.browser/packages/sacha_spin/lib/spinner.css" />
       <root url="file://$USER_HOME$/AppData/Local/.meteor/packages/caching-html-compiler/1.0.6/web.browser/caching-html-compiler.js" />
       <root url="file://$USER_HOME$/AppData/Local/.meteor/packages/callback-hook/1.0.8/web.browser/hook.js" />
       <root url="file://$USER_HOME$/AppData/Local/.meteor/packages/check/1.2.1/web.browser/match.js" />
