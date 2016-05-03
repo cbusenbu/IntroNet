@@ -1,0 +1,29 @@
+<template name="OnetoOneScheduler">
+
+    <style>
+        th, td {
+            padding: 3px;
+        }
+
+        td{
+            border-bottom: 1px solid darkgray;}
+
+        input[type="number"]{
+            text-align: right;
+            width: 80px;
+        }
+    </style>
+
+    <!-- Page heading -->
+    {{> pageHeading title='1-1 Scheduler' }}
+    {{#if currentUser}}
+        <table id="Schedules">
+            <tr>
+                <th>Name</th>
+                <th>Activity</th>
+                <th>Meeting</th>
+            </tr>
+        </table>
+    {{/if}}
+    <button type="button" id="Sched1">Click Me!</button>
+</template>

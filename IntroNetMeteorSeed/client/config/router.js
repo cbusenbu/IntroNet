@@ -182,6 +182,14 @@ Router.route('/newOneToOneEvent', function(){
     this.render('newOneToOneEvent')
 });
 
+Router.route('/onetoManyScheduler', function(){
+    this.render('OnetoManyScheduler')
+});
+
+Router.route('/onetoOneScheduler', function(){
+    this.render('OnetoOneScheduler')
+});
+
 Router.route('/register', function(){
     this.render('registerUser');
     this.layout('blankLayout');
