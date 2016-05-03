@@ -15,7 +15,12 @@ if(Meteor.isServer){
 
     Meteor.publish('eventsByAttendee',function(){
         var currentUserID = this.userId;
-        //TODO
+        eventsAttending = Events.find({attendees: { $in: [currentUserID]}});
+
+        if(eventsAttending)
+            return eventsAttending;
+
+        return this.ready();
     });
 
     Meteor.publish('eventById', function(event_id){

@@ -23,6 +23,7 @@ if(Meteor.isServer){
                 schedules:[],
                 registrations: [],
                 preferenceSettings:event.preferenceSettings,
+                presentations:{},
                 session: event.sessions,
             });
 
@@ -49,7 +50,7 @@ if(Meteor.isServer){
 
             var currentEvent = Events.findOne({_id:eventID});
             var creator = currentEvent.creatorID;
-            var eventAttendees = currentEvent.attendees
+            var eventAttendees = currentEvent.attendees;
 
             Meteor.users.update({_id:creator}, {$pull: {eventsOwned : eventID}});
 

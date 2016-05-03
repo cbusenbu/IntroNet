@@ -19,64 +19,94 @@
     <div class="wrapper wrapper-content animated fadeInRight">
 
         {{#each event in eventObject}}
-        <div class="col-lg-8">
-            <div class="ibox">
-                <div class="ibox-title"><h3>Basic Event Information</h3></div>
-                <div class="ibox-content">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <b>Event Name: </b><label id="eventName">{{event.name}}</label><br>
-                            <b>Event Location: </b><label id="eventLocation">{{event.location}}</label><br>
-                            <b>Event Dates: </b><label id="eventStart">{{event.startDate}}</label> to <label id="eventEnd">{{event.endDate}}</label><br>
-                            <br>
-                            <b>Event ID (needed for signup): </b><label id="eventID">{{event._id}}</label><br>
-                        </div>
-                        <div class="col-lg-6">
-                            <b>Event Type: </b><label id="eventType">
-                                {{#if event.oneToOne}}One-To-One{{/if}}
-                                {{#if event.oneToMany}}One-To-Many{{/if}}
-                                </label><br>
-                            <b>Number of Activities: </b><label id="activityCount">{{event.activityCount}}</label><br>
-                            <b>Activity Length: </b><label id="activityLength">{{event.activityLength}}</label><br>
-                            <b>Break Length: </b><label id="breakLength">{{event.breakLength}}</label><br>
-                            <b>Time Filled: </b><label id="activityCount">{{event.totalTime}}</label> minutes<br>
+            <div class="col-lg-8">
+                <div class="ibox">
+                    <div class="ibox-title"><h3>Basic Event Information</h3></div>
+                    <div class="ibox-content">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <b>Event Name: </b><label id="eventName">{{event.name}}</label><br>
+                                <b>Event Location: </b><label id="eventLocation">{{event.location}}</label><br>
+                                <b>Event Dates: </b><label id="eventStart">{{event.startDate}}</label> to <label id="eventEnd">{{event.endDate}}</label><br>
+                                <br>
+                                <b>Event ID (needed for signup): </b><label id="eventID">{{event._id}}</label><br>
+                            </div>
+                            <div class="col-lg-6">
+                                <b>Event Type: </b><label id="eventType">
+                                    {{#if event.oneToOne}}One-To-One{{/if}}
+                                    {{#if event.oneToMany}}One-To-Many{{/if}}
+                                    </label><br>
+                                <b>Number of Activities: </b><label id="activityCount">{{event.activityCount}}</label><br>
+                                <b>Activity Length: </b><label id="activityLength">{{event.activityLength}}</label><br>
+                                <b>Break Length: </b><label id="breakLength">{{event.breakLength}}</label><br>
+                                <b>Time Filled: </b><label id="activityCount">{{event.totalTime}}</label> minutes<br>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="col-lg-8">
-            <div class="ibox float-e-margins">
-                <div class="ibox-title">
-                    <h3>Preference Settings</h3>
-                </div>
-                <div class="ibox-content">
-                   <table>
-                       <tr>
-                           <th>Preference Name</th>
-                           <th>Options</th>
-                           <th>Preference Selection Type</th>
-                       </tr>
-                       {{#each preference in event.preferenceSettings}}
-                           <tr>
-                               <td><b>{{preference.prefName}}</b></td>
-                               <td>
-                                   <ul>
-                                       {{#each option in preference.prefOptions}}
-                                            <li>{{option}}</li>
-                                       {{/each}}
-                                   </ul>
-                               </td>
-                               <td>
-                                   {{preference.prefType}}
-                               </td>
-                           </tr>
-                       {{/each}}
 
-                   </table>
+            <!-- TODO: implement OneToOne check -->
+            <!-- {{#if OneToOne}} -->
+            <div class="col-lg-8">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h3>Preference Settings</h3>
+                    </div>
+                    <div class="ibox-content">
+                       <table>
+                           <tr>
+                               <th>Preference Name</th>
+                               <th>Options</th>
+                               <th>Preference Selection Type</th>
+                           </tr>
+                               {{#each preference in event.preferenceSettings}}
+                                   <tr>
+                                       <td><b>{{preference.prefName}}</b></td>
+                                       <td>
+                                           <ul>
+                                               {{#each option in preference.prefOptions}}
+                                                    <li>{{option}}</li>
+                                               {{/each}}
+                                           </ul>
+                                       </td>
+                                       <td>
+                                           {{preference.prefType}}
+                                       </td>
+                                   </tr>
+                               {{/each}}
+                       </table>
+                    </div>
                 </div>
             </div>
-        </div>
+            <!-- {{/if}} -->
+
+            <!-- TODO: implement OneToMany check -->
+            <!-- {{#if OneToMany}} -->
+            <div class="col-lg-8">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h3>Preference Settings</h3>
+                    </div>
+                    <div class="ibox-content">
+                        <table>
+                            <tr>
+                                <th>Title</th>
+                                <th>Presenter</th>
+                                <th>Abstract</th>
+                            </tr>
+                            {{#each presentation in event.presentations}}
+                                <tr>
+                                    <td><b>{{presentation.title}}</b></td>
+                                    <td>{{presentation.presenter}}</td>
+                                    <td>{{presentation.abstract}}</td>
+                                </tr>
+                            {{/each}}
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <!-- {{/if}} -->
         {{/each}}
     </div>
     {{/if}}

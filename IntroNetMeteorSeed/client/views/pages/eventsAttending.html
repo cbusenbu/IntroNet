@@ -30,8 +30,8 @@
                             <th>Start</th>
                             <th>Location</th>
                         </tr>
-                        <!-- TODO: remove comments from "each" statement after subscription is implemented -->
-                        <!-- {{#each event in eventsOfAttendee}} -->
+
+                        {{#each event in eventsOfAttendee}}
                             <tr>
                                 <td><b>{{event.name}}</b></td>
                                 <td>{{event.startDate}}</td>
@@ -41,7 +41,7 @@
                                 <td><a class="btn" type="button" href ="myPreferences/{{event._id}}">Preferences</a></td>
                                 <td><a class="btn" type="button" href ="mySchedule/{{event._id}}">Schedule</a></td>
                             </tr>
-                        <!-- {{/each}} -->
+                        {{/each}}
 
                     </table>
                 </div>

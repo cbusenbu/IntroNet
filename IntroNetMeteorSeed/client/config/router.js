@@ -87,10 +87,9 @@ Router.route('/eventRegistrationOne/:_id',{
 
 Router.route('/eventsAttending', {
     path: '/eventsAttending',
-        template: 'eventsAttending',
-        subscriptions: function() {
-        //TODO: implement eventsByAttendee subscription
-        //return Meteor.subscribe('eventsByAttendee');
+    template: 'eventsAttending',
+    subscriptions: function() {
+        Meteor.subscribe('eventsByAttendee');
     },
 
     action:function(){
