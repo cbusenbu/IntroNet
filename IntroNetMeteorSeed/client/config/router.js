@@ -75,6 +75,9 @@ Router.route('/eventRegistrationOne/:_id',{
     },
     action:function(){
         if(this.ready()){
+            var eventObject = Events.find().fetch();
+            var timerCount = eventObject[0].activityLength *60;
+            Session.set('thisEventTime',timerCount);
             this.render('eventRegistrationOne');
         }else{
             this.render('loading');
@@ -189,11 +192,18 @@ Router.route('/stopWatch/:_id',{
         return Meteor.subscribe('eventById',this.params._id);
     },
     action: function(){
-        if(this.ready)
+        var timerEvent = Events.find().fetch();
+        var timerCount = timerEvent.activityLength * 60;
+        Session.set('thisEventTime', timerCount);
+
+        if(this.ready) {
+
             this.render('stopWatch');
+        }
         else
             this.render('loading');
     }
+    
 });
 
 Router.route('/userProfile', function (){
