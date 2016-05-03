@@ -1,0 +1,29 @@
+<template name="OnetoManyScheduler">
+
+    <style>
+        th, td {
+            padding: 3px;
+        }
+
+        td{
+            border-bottom: 1px solid darkgray;}
+
+        input[type="number"]{
+            text-align: right;
+            width: 80px;
+        }
+    </style>
+
+    <!-- Page heading -->
+    {{> pageHeading title='1-N Scheduler' }}
+    {{#if currentUser}}
+        <table id="Schedules">
+            <tr>
+                <th>Name</th>
+                <th>Activity</th>
+                <th>Poster</th>
+            </tr>
+        </table>
+    {{/if}}
+    <button type="button" id="SchedN">Click Me!</button>
+</template>
