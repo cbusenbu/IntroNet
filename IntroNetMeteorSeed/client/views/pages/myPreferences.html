@@ -21,17 +21,18 @@
                     <div class="ibox-title">
                         <h3>Preference Settings</h3>
                     </div>
-
+                    {{#each event in eventObject}}
+                    <!-- TODO: build isOneToOne Helper -->
                     <!-- if OneToOne -->
                         <!-- for each preference -->
                         {{#each preference in event.preferenceSettings}}
                             <div class="ibox-content">
                                 <form class="form-horizontal">
-                                    <p><label id="prefName_1">(Preference Name 1)</label></p>
+                                    <p><label id="prefName_1">{{preference.prefName}}</label></p>
                                     <div class="form-group">
                                         <label class="col-lg-3 control-label">Which Best Describes You?</label>
                                         <div class="col-sm-6">
-                                            <select class="form-control m-b" id="userAttribute_1">
+                                            <select class="form-control m-b" id="userAttribute_{{preference.prefName}}">
                                                 {{#each preferenceOption in preference.prefOptions}}
                                                     <option>{{preferenceOption}}</option>
                                                 {{/each}}
@@ -53,10 +54,10 @@
                                                         {{#each option in preference.prefOptions}}
                                                         <!-- for each option -->
                                                         <tr>
-                                                            <td>Option Name</td>
-                                                            <td><input type="radio" name="pref-#-#" value="dislike"/></td>
-                                                            <td><input type="radio" name="pref-#-#" value="neutral" checked/></td>
-                                                            <td><input type="radio" name="pref-#-#" value="like"/></td>
+                                                            <td>{{option}}</td>
+                                                            <td><input type="radio" name="pref-{{preference.prefName}}-{{option}}" value="dislike"/></td>
+                                                            <td><input type="radio" name="pref-{{preference.prefName}}-{{option}}" value="neutral" checked/></td>
+                                                            <td><input type="radio" name="pref-{{preference.prefName}}-{{option}}" value="like"/></td>
                                                         </tr>
                                                         <!-- end for -->
                                                         {{/each}}
@@ -65,8 +66,8 @@
                                                     <tr>
                                                         <td>Like Me</td>
                                                         <td><input type="radio" name="pref-{{preference.prefName}}-same" value="dislike"/></td>
-                                                        <td><input type="radio" name="pref-{{preference.prefName}}-same" checked/></td>
-                                                        <td><input type="radio" name="pref-{{preference.prefName}}-same"/></td>
+                                                        <td><input type="radio" name="pref-{{preference.prefName}}-same" checked value="neutral"/></td>
+                                                        <td><input type="radio" name="pref-{{preference.prefName}}-same" value="like"/></td>
                                                     </tr>
                                                     <tr>
                                                         <td>Unlike Me</td>
@@ -95,19 +96,21 @@
                                             <table border="1">
                                                 <tr>
                                                     <th>Presentation Name</th>
+                                                    <th>Abstract</th>
                                                     <th>Prefer not to see</th>
                                                     <th>No Preference</th>
                                                     <th>Prefer to see</th>
                                                 </tr>
 
-                                                <!-- for each presentation -->
+                                                {{#each pres in event.presentations}}
                                                     <tr>
-                                                        <td>Name</td>
-                                                        <td><input type="radio" name="pres-#" value="dislike"/></td>
-                                                        <td><input type="radio" name="pres-#" value="neutral" checked/></td>
-                                                        <td><input type="radio" name="pres-#" value="like"/></td>
+                                                        <td>{{pres.title}}</td>
+                                                        <td>{{pres.abstract}}</td>
+                                                        <td><input type="radio" name="pres-{{pres.presenter}}" value="dislike"/></td>
+                                                        <td><input type="radio" name="pres-{{pres.presenter}}" value="neutral" checked/></td>
+                                                        <td><input type="radio" name="pres-{{pres.presenter}}" value="like"/></td>
                                                     </tr>
-                                                <!-- end for -->
+                                                {{/each}}
                                             </table>
                                         </div>
                                     </div>
@@ -115,6 +118,8 @@
                             </form>
                         </div>
                     <!-- end if -->
+
+                    {{/each}}
 
                 </div>
             </div>
