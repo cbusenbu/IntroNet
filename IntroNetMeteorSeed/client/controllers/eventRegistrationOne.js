@@ -41,6 +41,7 @@ Template.eventRegistrationOne.events({
                 departureHour:document.getElementById("earlyDepartureHour").value,
                 departureMinute:document.getElementById("earlyDepartureMin").value,
                 handicapped:document.getElementById("handicapped").checked,
+                isVIP:false,
                 preferences:[]
             };
 
@@ -105,20 +106,9 @@ Template.eventRegistrationOne.events({
                             };
                             preference.preferenceSelections.push(preferenceSelectDiff);
                         }
-
                     }
-
-
                 }
-                
-
                 registration.preferences.push(preference);
-                //console.log("finished");
-                //console.log(registration);
-                //console.log(eventObj._id)
-                
-
-
             }
             Meteor.call('addRegistrationToEvent',eventObj._id,registration);
         }

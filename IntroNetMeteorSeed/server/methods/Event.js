@@ -23,7 +23,7 @@ if(Meteor.isServer){
                 schedules:[],
                 registrations: [],
                 preferenceSettings:event.preferenceSettings,
-                presentations:{},
+                presentations:[],
                 session: event.sessions,
             });
 
@@ -34,6 +34,10 @@ if(Meteor.isServer){
         },
         'addEventToOwner': function(eventID){
             Meteor.users.update({_id: Meteor.userId()}, {$addToSet: { "eventsOwned" : eventID}});
+        },
+
+        'addPresentationToEvent': function(eventID,presentation){
+            Events.update({_id: eventID}, {$addToSet: {"presentations" : presentation}});
         },
 
         'addEventToAttendee': function( eventID){
@@ -92,7 +96,6 @@ if(Meteor.isServer){
         },
 
         'addRegistrationToEvent':function(eventID,registrationObj){
-            console.log(registrationObj);
             Events.update({_id: eventID},{$addToSet: {"registrations":registrationObj}});
         }
     })
