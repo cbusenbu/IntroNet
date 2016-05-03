@@ -34,7 +34,13 @@ if(Meteor.isServer){
     });
 
     Meteor.publish('eventAttendees', function(event_id){
-      usersAttending = Meteor.users.find({});
+        //TODO: Make the attendee list sort properly!
+        usersAttending = Meteor.users.find({eventsAttending: {$in: [event_id]}}, {sort: { 'profile.name': 1}, fields: {'_id':1, 'profile':1}});
+
+        if(usersAttending){
+            return usersAttending;
+        }
+        return this.ready();
     });
     
 }

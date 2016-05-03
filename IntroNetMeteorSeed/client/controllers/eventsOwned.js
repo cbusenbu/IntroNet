@@ -10,6 +10,7 @@ Template.eventsOwned.helpers({
     }
 
 });
+
 Template.eventsOwned.events({
 
     'click #delete' : function(event,template){

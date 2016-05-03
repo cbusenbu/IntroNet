@@ -132,10 +132,10 @@ Router.route('/login', function (){
 
 Router.route('/manageAttendees/:_id',{
     subscriptions: function() {
-        return Meteor.subscribe('eventById',this.params._id);
+        return Meteor.subscribe('eventAttendees',this.params._id);
     },
     action: function(){
-        if(this.ready())
+        if(this.ready)
             this.render('manageAttendees');
         else
             this.render('loading');
@@ -202,7 +202,7 @@ Router.route('/userProfile', function (){
 
 Router.route('/viewEventAttendees/:_id',{
     subscriptions: function() {
-        return Meteor.subscribe('eventById',this.params._id);
+        return Meteor.subscribe('eventAttendees',this.params._id);
     },
     action: function(){
         if(this.ready)

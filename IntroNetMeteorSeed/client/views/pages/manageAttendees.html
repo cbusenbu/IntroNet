@@ -22,14 +22,14 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <!-- for each attending user (alphabetical order) -->
+                                    {{#each user in attendees}}
                                         <tr>
-                                            <td><input id="vip_userID" name="vip_userID" type="checkbox"></td>
-                                            <td>Name</td>
-                                            <td>Biography</td>
-                                            <td>IceBreakers</td>
+                                            <td><input id="vip_userID" name="vip_{{user._id}}" type="checkbox"></td>
+                                            <td>{{user.profile.name}}</td>
+                                            <td>{{user.profile.biography}}</td>
+                                            <td>{{user.profile.iceBreakers}}</td>
                                         </tr>
-                                    <!-- end each user -->
+                                    {{/each}}
                                 </tbody>
                             </table>
                         </div>
