@@ -22,7 +22,8 @@ This is not a fully complete version of IntroNet, and as such, it must be refine
 ############################################################################################################
 
 Particular Changes that need to be made before the product is finished:
-	1. The Schedulers need to be hooked up to the database to generate schedules based on user Registrations
-	2. A handful of pages need to be hooked up to the database (Schedules, Preferences, Timer)
-	3. Email and PDF generation need to be added if they are desired in the functionality.
-	4. Form validation needs to be added so that bad inputs are not accepted.
+
+	1) The Schedulers need to be hooked up to the database to generate schedules based on user Registrations
+	2) A handful of pages need to be hooked up to the database (Schedules, Preferences, Timer)
+	3) Email and PDF generation need to be added if they are desired in the functionality.
+	4) Form validation needs to be added so that bad inputs are not accepted.
