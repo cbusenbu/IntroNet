@@ -8,7 +8,7 @@ To run IntroNet:
 ############################################################################################################
 
 	1) Install meteor. (https://www.meteor.com/install)
-	2) Open a cmd/terminal window, cd to the IntroNetMeteorSeed folder
+	2) Open a cmd/terminal window, cd to the IntroNetMeteor folder
 	3) Enter the "meteor" command (no quotes)
 	4) Meteor will install necessary updates, and then begin running IntroNet
 	5) Navigate to the application in a web browser. (Meteor defaults to localhost:3000)
